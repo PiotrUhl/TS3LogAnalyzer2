@@ -68,5 +68,8 @@
     <ClInclude Include="LineInfo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="RecordType.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

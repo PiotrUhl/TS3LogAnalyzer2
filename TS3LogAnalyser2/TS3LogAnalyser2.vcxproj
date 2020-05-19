@@ -138,6 +138,7 @@
     <ClInclude Include="LineInfo.h" />
     <ClInclude Include="LineInterpreter.h" />
     <ClInclude Include="Log.h" />
+    <ClInclude Include="RecordType.hpp" />
     <ClInclude Include="ServerData.hpp" />
     <ClInclude Include="ServerDataUpdater.h" />
     <ClInclude Include="UserData.hpp" />
