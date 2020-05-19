@@ -130,8 +130,8 @@
   <ItemGroup>
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="Log.h" />
-    <ClInclude Include="ServerData.h" />
-    <ClInclude Include="UserData.h" />
+    <ClInclude Include="ServerData.hpp" />
+    <ClInclude Include="UserData.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

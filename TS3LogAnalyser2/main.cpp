@@ -2,8 +2,8 @@
 #include <windows.h>
 #include <vector>
 
-#include "UserData.h"
-#include "ServerData.h"
+#include "UserData.hpp"
+#include "ServerData.hpp"
 #include "Log.h"
 #include "FileManager.h"
 
