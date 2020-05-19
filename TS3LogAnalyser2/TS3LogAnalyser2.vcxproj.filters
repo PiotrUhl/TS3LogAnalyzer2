@@ -8,9 +8,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Exceptions">
-      <UniqueIdentifier>{46534d73-f8f4-4939-b5a2-feec7d1d0f22}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FileManager.cpp">
@@ -35,9 +32,6 @@
       <Filter>Classes</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="UnidentifiedLineException.cpp">
-      <Filter>Exceptions</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ServerData.hpp">
@@ -69,9 +63,6 @@
     </ClInclude>
     <ClInclude Include="UserData.hpp">
       <Filter>Types</Filter>
-    </ClInclude>
-    <ClInclude Include="UnidentifiedLineException.h">
-      <Filter>Exceptions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
