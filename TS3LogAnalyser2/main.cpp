@@ -7,6 +7,7 @@
 #include "Log.h"
 #include "FileManager.h"
 #include "LineInterpreter.h"
+#include "UserDataUpdater.h"
 
 int main() {
 
@@ -25,8 +26,8 @@ int main() {
 	ServerDataUpdater serverDataUpdater(serverData); //aktualizator statystyk serwera
 	for (Line line = fileManager.getLine(); line.endOfLog() == false; line = fileManager.getLine()) { //dla ka¿dej linii w ka¿dym pliku
 		LineInfo lineInfo = lineInterpreter.interpretLine(line); //interpretacja linii
-		userDataUpdater(lineInfo); //aktualizacja statystyk u¿ytkowników o informacje z odczytanej linii
-		serverDataUpdater(lineInfo); //aktualizacja statystyk serwera o informacje z odczytanej linii
+		userDataUpdater.update(lineInfo); //aktualizacja statystyk u¿ytkowników o informacje z odczytanej linii
+		serverDataUpdater.update(lineInfo); //aktualizacja statystyk serwera o informacje z odczytanej linii
 	}
 	
 	//zapis wyników
