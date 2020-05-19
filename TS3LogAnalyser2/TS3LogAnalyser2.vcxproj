@@ -125,6 +125,7 @@
   <ItemGroup>
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="Line.cpp" />
+    <ClCompile Include="LineInfo.cpp" />
     <ClCompile Include="LineInterpreter.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="main.cpp" />
@@ -134,6 +135,7 @@
   <ItemGroup>
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="Line.h" />
+    <ClInclude Include="LineInfo.h" />
     <ClInclude Include="LineInterpreter.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="ServerData.hpp" />

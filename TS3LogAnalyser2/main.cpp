@@ -10,6 +10,7 @@
 #include "UserDataUpdater.h"
 #include "ServerDataUpdater.h"
 #include "Line.h"
+#include "LineInfo.h"
 
 int main() {
 
