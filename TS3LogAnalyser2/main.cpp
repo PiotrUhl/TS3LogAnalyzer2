@@ -6,6 +6,7 @@
 #include "ServerData.hpp"
 #include "Log.h"
 #include "FileManager.h"
+#include "LineInterpreter.h"
 
 int main() {
 

@@ -124,11 +124,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="LineInterpreter.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileManager.h" />
+    <ClInclude Include="LineInterpreter.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="ServerData.hpp" />
     <ClInclude Include="UserData.hpp" />
