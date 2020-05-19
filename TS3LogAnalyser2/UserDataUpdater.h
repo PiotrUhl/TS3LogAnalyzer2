@@ -6,7 +6,7 @@ class LineInfo;
 
 //aktualizator struktury UserData
 class UserDataUpdater {
-	std::vector<UserData>& userData; //aktualizowana struktura UserData
+	std::vector<UserData>& userData;
 public:
 	//konstruktor
 	UserDataUpdater(std::vector<UserData>& _userData) : userData(_userData) {}

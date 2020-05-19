@@ -127,6 +127,7 @@
     <ClCompile Include="LineInterpreter.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ServerDataUpdater.cpp" />
     <ClCompile Include="UserDataUpdater.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -134,6 +135,7 @@
     <ClInclude Include="LineInterpreter.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="ServerData.hpp" />
+    <ClInclude Include="ServerDataUpdater.h" />
     <ClInclude Include="UserData.hpp" />
     <ClInclude Include="UserDataUpdater.h" />
   </ItemGroup>

@@ -8,6 +8,7 @@
 #include "FileManager.h"
 #include "LineInterpreter.h"
 #include "UserDataUpdater.h"
+#include "ServerDataUpdater.h"
 
 int main() {
 
