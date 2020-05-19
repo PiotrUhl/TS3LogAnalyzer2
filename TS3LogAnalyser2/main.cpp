@@ -5,14 +5,20 @@
 #include "UserData.h"
 #include "ServerData.h"
 #include "Log.h"
+#include "FileManager.h"
 
 int main() {
+
+	std::string basePath; //bazowa œcie¿ka z plikami logów
 
 	std::vector<UserData> userData; //statystyki u¿ytkowników serwera
 	ServerData serverData; //statystyki serwera
 	unsigned int unknownLine = 0; // iloœæ niezidentyfikowanych linii;
 
-	FileManager fileManager; //mened¿er plików
+
+
+
+	FileManager fileManager(basePath); //mened¿er plików
 	LineInterpreter lineInterpreter; //interpreter linii
 	UserDataUpdater userDataUpdater(userData); //aktualizator statystyk u¿ytkownika
 	ServerDataUpdater serverDataUpdater(serverData); //aktualizator statystyk serwera
