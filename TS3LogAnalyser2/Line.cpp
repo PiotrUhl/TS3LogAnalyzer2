@@ -1,15 +1,5 @@
 #include "Line.h"
 
-//operator przypisania
-Line& Line::operator=(const Line& _) {
-	Line ret(_);
-	return ret;
-}
-Line& Line::operator=(Line&& _) {
-	Line ret(_);
-	return ret;
-}
-
 //getter line
 std::string Line::getLine() const {
 	return line;
@@ -17,9 +7,10 @@ std::string Line::getLine() const {
 
 //getter endOfFile
 bool Line::endOfFile() const {
-	return endOfFile;
+	return isEndOfFile;
 }
 
+//getter endOfLog
 bool Line::endOfLog() const {
-	return endOfLog;
+	return isEndOfLog;
 }

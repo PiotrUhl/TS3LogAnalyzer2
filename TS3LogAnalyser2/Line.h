@@ -3,17 +3,16 @@
 
 //reprezentacja pojedyñczej linii odczytanej z pliku
 class Line {
+	std::string line; //odczytana linia
+	bool isEndOfFile; //koniec pliku
+	bool isEndOfLog; //koniec logów
 public:
-	const std::string line; //odczytana linia
-	const bool endOfFile; //koniec pliku
-	const bool endOfLog; //koniec logów
-	
 	//konstruktory i operatory przypisania
-	Line(const std::string & _line, bool _endOfFile, bool _endOfLog) : line(_line), endOfFile(_endOfFile), endOfLog(_endOfLog) {}
-	Line(const Line& _) : line(_.line), endOfFile(_.endOfFile), endOfLog(_.endOfLog) {}
-	Line(Line&& _) : line(_.line), endOfFile(_.endOfFile), endOfLog(_.endOfLog) {}
-	Line& operator=(const Line&);
-	Line& operator=(Line&&);
+	Line(const std::string & _line, bool _endOfFile, bool _endOfLog) : line(_line), isEndOfFile(_endOfFile), isEndOfLog(_endOfLog) {}
+	Line(const Line& _) = default;
+	Line(Line&& _) = default;
+	Line& operator=(const Line&) = default;
+	Line& operator=(Line&&) = default;
 	
 	//getter line
 	std::string getLine() const;
