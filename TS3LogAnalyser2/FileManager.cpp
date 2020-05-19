@@ -1,5 +1,6 @@
 #include "FileManager.h"
 #include "Line.h"
+#include <string>
 //konstruktor
 FileManager::FileManager(const std::string& _basePath) : basePath(_basePath) {
 	
@@ -7,7 +8,7 @@ FileManager::FileManager(const std::string& _basePath) : basePath(_basePath) {
 
 //pobiera i zwraca nastêpn¹ liniê z pliku
 Line FileManager::getLine() {
-	return Line();
+	return Line("");
 }
 //informuje czy ostatnia pobrana linia by³a ostatni¹ lini¹ pliku (nastêpna bêdzie z nowego pliku)
 bool FileManager::endOfFile() {

@@ -2,7 +2,7 @@
 
 class Line; //Line
 class LineInfo; //LineInfo
-enum RecordType; //RecordType
+#include "RecordType.hpp"
 
 class LineInterpreter {
 public:

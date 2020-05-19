@@ -20,14 +20,11 @@ int main() {
 	ServerData serverData; //statystyki serwera
 	unsigned int unknownLine = 0; // iloœæ niezidentyfikowanych linii;
 
-
-
-
 	FileManager fileManager(basePath); //mened¿er plików
 	LineInterpreter lineInterpreter; //interpreter linii
 	UserDataUpdater userDataUpdater(userData); //aktualizator statystyk u¿ytkownika
 	ServerDataUpdater serverDataUpdater(serverData); //aktualizator statystyk serwera
-	for (Line line = fileManager.getLine(); line.endOfLog == false; line = fileManager.getLine()) { //dla ka¿dej linii w ka¿dym pliku
+	for (Line line = fileManager.getLine(); line.endOfLog() == false; line = fileManager.getLine()) { //dla ka¿dej linii w ka¿dym pliku
 		LineInfo lineInfo = lineInterpreter.interpretLine(line); //interpretacja linii
 		userDataUpdater.update(lineInfo); //aktualizacja statystyk u¿ytkowników o informacje z odczytanej linii
 		serverDataUpdater.update(lineInfo); //aktualizacja statystyk serwera o informacje z odczytanej linii

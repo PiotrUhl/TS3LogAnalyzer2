@@ -1,7 +1,6 @@
 #pragma once
 #include <ctime> //time_t
-
-enum class RecordType;
+#include "RecordType.hpp"
 
 //informacje zdekodowanej linii
 class LineInfo {

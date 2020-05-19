@@ -1,75 +1,77 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Classes">
+      <UniqueIdentifier>{9e2c9aab-0fb1-4d43-b4ff-d2547e4c975c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
+    <Filter Include="Types">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Exceptions">
+      <UniqueIdentifier>{46534d73-f8f4-4939-b5a2-feec7d1d0f22}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Log.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="FileManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LineInterpreter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UserDataUpdater.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ServerDataUpdater.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Classes</Filter>
     </ClCompile>
     <ClCompile Include="Line.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Classes</Filter>
     </ClCompile>
     <ClCompile Include="LineInfo.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="LineInterpreter.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Log.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerDataUpdater.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="UserDataUpdater.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="UnidentifiedLineException.cpp">
+      <Filter>Exceptions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Log.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FileManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ServerData.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UserData.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LineInterpreter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UserDataUpdater.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ServerDataUpdater.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Line.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LineInfo.h">
-      <Filter>Header Files</Filter>
+      <Filter>Types</Filter>
     </ClInclude>
     <ClInclude Include="RecordType.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="FileManager.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Line.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="LineInfo.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="LineInterpreter.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Log.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerDataUpdater.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="UserDataUpdater.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="UserData.hpp">
+      <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="UnidentifiedLineException.h">
+      <Filter>Exceptions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

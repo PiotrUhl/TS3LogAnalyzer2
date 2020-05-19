@@ -130,6 +130,7 @@
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ServerDataUpdater.cpp" />
+    <ClCompile Include="UnidentifiedLineException.cpp" />
     <ClCompile Include="UserDataUpdater.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +142,7 @@
     <ClInclude Include="RecordType.hpp" />
     <ClInclude Include="ServerData.hpp" />
     <ClInclude Include="ServerDataUpdater.h" />
+    <ClInclude Include="UnidentifiedLineException.h" />
     <ClInclude Include="UserData.hpp" />
     <ClInclude Include="UserDataUpdater.h" />
   </ItemGroup>
