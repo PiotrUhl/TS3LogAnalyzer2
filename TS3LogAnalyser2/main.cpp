@@ -26,6 +26,8 @@ int main() {
 	UserDataUpdater userDataUpdater(userData); //aktualizator statystyk u¿ytkownika
 	ServerDataUpdater serverDataUpdater(serverData); //aktualizator statystyk serwera
 	for (Line line = fileManager.getLine(); line.endOfLog() == false; line = fileManager.getLine()) { //dla ka¿dej linii w ka¿dym pliku
+		if (line.getNumber() == 1)
+			std::cout << fileManager.getFileName() << '\n';
 		LineInfo lineInfo = lineInterpreter.interpretLine(line); //interpretacja linii
 		if (lineInfo.getType() == RecordType::UNIDENTIFIED)
 			unknownLines++;
