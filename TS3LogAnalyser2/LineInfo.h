@@ -1,9 +1,10 @@
-#pragma once
+	#pragma once
 #include <ctime> //time_t
 #include "RecordType.hpp"
 
 //informacje zdekodowanej linii
 class LineInfo {
+protected:
 	RecordType recordType; //typ rekordu
 	time_t time; //record timestamp
 public:
