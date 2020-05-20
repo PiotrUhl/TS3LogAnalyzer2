@@ -12,8 +12,3 @@ LineInfo LineInterpreter::interpretLine(Line line) const {
 RecordType LineInterpreter::checkRecordType(Line line) const {
 	return RecordType();
 }
-
-//returns unidentified line
-std::string LineInterpreter::UnidentifiedLineException::line() {
-	return _line;
-}
