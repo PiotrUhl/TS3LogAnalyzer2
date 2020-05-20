@@ -2,10 +2,9 @@
 #include "Line.h"
 #include "LineInfo.h"
 
-
 //interpretuje linie
-LineInfo LineInterpreter::interpretLine(Line line) const {
-	return LineInfo(RecordType::UNIDENTIFIED, 0);
+std::unique_ptr<LineInfo> LineInterpreter::interpretLine(Line line) const {
+	return std::make_unique<LineInfo>(RecordType::UNIDENTIFIED, 0);
 }
 
 //sprawdza rodzaj wpisu w linii

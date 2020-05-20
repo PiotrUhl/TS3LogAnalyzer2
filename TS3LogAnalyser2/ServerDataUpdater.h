@@ -10,6 +10,6 @@ public:
 	//konstruktor
 	ServerDataUpdater(ServerData& _serverData) : serverData(_serverData) {}
 	//dopisuje zawartoœæ rekordu do statystyk serwera
-	void update(LineInfo lineInfo);
+	void update(const LineInfo& lineInfo);
 };
 

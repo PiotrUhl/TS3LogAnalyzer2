@@ -2,6 +2,6 @@
 #include "LineInfo.h"
 
 //dopisuje zawartoœæ rekordu do statystyk odpowiednich u¿ytkowników
-void UserDataUpdater::update(LineInfo lineInfo) {
+void UserDataUpdater::update(const LineInfo& lineInfo) {
 	;
 }

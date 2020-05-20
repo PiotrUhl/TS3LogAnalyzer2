@@ -28,12 +28,12 @@ int main() {
 	for (Line line = fileManager.getLine(); line.endOfLog() == false; line = fileManager.getLine()) { //dla ka¿dej linii w ka¿dym pliku
 		if (line.getNumber() == 1)
 			std::cout << fileManager.getFileName() << '\n';
-		LineInfo lineInfo = lineInterpreter.interpretLine(line); //interpretacja linii
-		if (lineInfo.getType() == RecordType::UNIDENTIFIED)
+		std::unique_ptr<LineInfo> lineInfo = lineInterpreter.interpretLine(line); //interpretacja linii
+		if (lineInfo->getType() == RecordType::UNIDENTIFIED)
 			unknownLines++;
 		else {
-			userDataUpdater.update(lineInfo); //aktualizacja statystyk u¿ytkowników o informacje z odczytanej linii
-			serverDataUpdater.update(lineInfo); //aktualizacja statystyk serwera o informacje z odczytanej linii
+			userDataUpdater.update(*lineInfo); //aktualizacja statystyk u¿ytkowników o informacje z odczytanej linii
+			serverDataUpdater.update(*lineInfo); //aktualizacja statystyk serwera o informacje z odczytanej linii
 		}
 	}
 	

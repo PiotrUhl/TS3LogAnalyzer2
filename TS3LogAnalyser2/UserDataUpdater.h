@@ -11,6 +11,6 @@ public:
 	//konstruktor
 	UserDataUpdater(std::vector<UserData>& _userData) : userData(_userData) {}
 	//dopisuje zawartoœæ rekordu do statystyk odpowiednich u¿ytkowników
-	void update(LineInfo lineInfo);
+	void update(const LineInfo& lineInfo);
 };
 

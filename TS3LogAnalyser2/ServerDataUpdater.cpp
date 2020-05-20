@@ -2,6 +2,6 @@
 #include "LineInfo.h"
 
 //dopisuje zawartoœæ rekordu do statystyk serwera
-void ServerDataUpdater::update(LineInfo lineInfo) {
+void ServerDataUpdater::update(const LineInfo& lineInfo) {
 	;
 }
