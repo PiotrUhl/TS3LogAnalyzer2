@@ -15,7 +15,7 @@
 
 int main() {
 
-	std::string basePath; //bazowa œcie¿ka z plikami logów
+	std::string basePath = "D:\\Piotr\\Folder\\Server\\logs\\"; //bazowa œcie¿ka z plikami logów
 
 	std::vector<UserData> userData; //statystyki u¿ytkowników serwera
 	ServerData serverData; //statystyki serwera
