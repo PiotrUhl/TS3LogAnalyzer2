@@ -11,6 +11,7 @@
 #include "ServerDataUpdater.h"
 #include "Line.h"
 #include "LineInfo.h"
+#include "RecordType.hpp"
 
 int main() {
 
@@ -18,7 +19,7 @@ int main() {
 
 	std::vector<UserData> userData; //statystyki u¿ytkowników serwera
 	ServerData serverData; //statystyki serwera
-	unsigned int unknownLine = 0; // iloœæ niezidentyfikowanych linii;
+	unsigned int unknownLines = 0; // iloœæ niezidentyfikowanych linii;
 
 	FileManager fileManager(basePath); //mened¿er plików
 	LineInterpreter lineInterpreter; //interpreter linii
@@ -26,11 +27,17 @@ int main() {
 	ServerDataUpdater serverDataUpdater(serverData); //aktualizator statystyk serwera
 	for (Line line = fileManager.getLine(); line.endOfLog() == false; line = fileManager.getLine()) { //dla ka¿dej linii w ka¿dym pliku
 		LineInfo lineInfo = lineInterpreter.interpretLine(line); //interpretacja linii
-		userDataUpdater.update(lineInfo); //aktualizacja statystyk u¿ytkowników o informacje z odczytanej linii
-		serverDataUpdater.update(lineInfo); //aktualizacja statystyk serwera o informacje z odczytanej linii
+		if (lineInfo.getType() == RecordType::UNIDENTIFIED)
+			unknownLines++;
+		else {
+			userDataUpdater.update(lineInfo); //aktualizacja statystyk u¿ytkowników o informacje z odczytanej linii
+			serverDataUpdater.update(lineInfo); //aktualizacja statystyk serwera o informacje z odczytanej linii
+		}
 	}
 	
 	//zapis wyników
+
+	std::cout << "Unknown lines: " << unknownLines << std::endl; //debug
 
 	return 0;
 }
