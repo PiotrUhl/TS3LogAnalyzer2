@@ -11,6 +11,7 @@ class FileManager {
 	HANDLE hFile; //uchwyt na aktualny plik
 	std::ifstream file; //aktualny strumieñ plikowy
 	std::string basePath; //bazowa œcie¿ka plików logów
+	std::string currentFile; //obecnie otwarty plik
 	bool eol; //pobrano ju¿ wszystkie linie z wszystkich plików
 public:
 	//konstruktor
@@ -19,7 +20,10 @@ public:
 	~FileManager();
 	//pobiera i zwraca nastêpn¹ liniê z pliku
 	Line getLine();
+	//zwraca œcie¿kê obecnie otwartego pliku
+	std::string getFilePath() const;
+	//zwraca nazwê obecnie otwartego pliku
+	std::string getFileName() const;
 	//informuje czy pobrano ju¿ wszystkie linie z wszystkich plików
-	bool endOfLog();
+	bool endOfLog() const;
 };
-

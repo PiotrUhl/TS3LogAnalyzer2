@@ -3,6 +3,7 @@
 
 //reprezentacja pojedyñczej linii odczytanej z pliku
 class Line {
+	std::string file; //nazwa pliku z którego pochodzi linia
 	std::string line; //odczytana linia
 	bool eol; //koniec logów
 public:
@@ -15,6 +16,8 @@ public:
 	
 	//getter line
 	std::string getLine() const;
+	//getter file
+	std::string getFile() const;
 	//getter endOfLog
 	bool endOfLog() const;
 };

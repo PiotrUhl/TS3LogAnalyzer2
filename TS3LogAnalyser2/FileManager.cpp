@@ -6,7 +6,8 @@
 FileManager::FileManager(const std::string& _basePath) : basePath(_basePath), eol(false) {
 	std::string searchPath = basePath + "\\ts3server_*_1.log";
 	hFile = FindFirstFile(searchPath.c_str(), &fileData);
-	file.open(std::string(basePath+fileData.cFileName).c_str());
+	currentFile = basePath + fileData.cFileName;
+	file.open(currentFile.c_str());
 	if (!file.good()) {
 		throw std::runtime_error("Cannot open file " + basePath + fileData.cFileName);
 	}
@@ -30,7 +31,8 @@ Line FileManager::getLine() {
 				return Line("", true); //zwróæ koniec logów
 			}
 			else {
-				file.open(std::string(basePath + fileData.cFileName).c_str()); //otwórz nastêpny plik
+				currentFile = basePath + fileData.cFileName;
+				file.open(currentFile.c_str()); //otwórz nastêpny plik
 				if (!file.good()) {
 					throw std::runtime_error("Cannot open file " + basePath + fileData.cFileName);
 				}
@@ -41,7 +43,17 @@ Line FileManager::getLine() {
 	}
 }
 
+//zwraca œcie¿kê obecnie otwartego pliku
+std::string FileManager::getFilePath() const {
+	return currentFile;	
+}
+
+//zwraca nazwê obecnie otwartego pliku
+std::string FileManager::getFileName() const {
+	return std::string(fileData.cFileName);
+}
+
 //informuje czy pobrano ju¿ wszystkie linie z wszystkich plików
-bool FileManager::endOfLog() {
+bool FileManager::endOfLog() const {
 	return eol;
 }
