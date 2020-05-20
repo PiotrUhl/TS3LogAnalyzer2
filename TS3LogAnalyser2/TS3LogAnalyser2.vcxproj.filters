@@ -35,9 +35,6 @@
       <Filter>Classes</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="UnidentifiedLineException.cpp">
-      <Filter>Exceptions</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ServerData.hpp">
@@ -69,9 +66,6 @@
     </ClInclude>
     <ClInclude Include="UserData.hpp">
       <Filter>Types</Filter>
-    </ClInclude>
-    <ClInclude Include="UnidentifiedLineException.h">
-      <Filter>Exceptions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
