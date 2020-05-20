@@ -3,7 +3,7 @@
 #include <iostream> //debug
 
 //konstruktor
-FileManager::FileManager(const std::string& _basePath) : basePath(_basePath), eol(false) {
+FileManager::FileManager(const std::string& _basePath) : basePath(_basePath), lineNr(0), eol(false) {
 	std::string searchPath = basePath + "\\ts3server_*_1.log";
 	hFile = FindFirstFile(searchPath.c_str(), &fileData);
 	currentFile = basePath + fileData.cFileName;
@@ -28,18 +28,19 @@ Line FileManager::getLine() {
 			file.close(); //zamknij obecny plik
 			if (FindNextFile(hFile, &fileData) == 0) { //je¿eli nie znaleziono kolejnego pliku
 				eol = true; //ustaw flagê koniec logów
-				return Line("", true); //zwróæ koniec logów
+				return Line("", 0, "", true); //zwróæ koniec logów
 			}
 			else {
 				currentFile = basePath + fileData.cFileName;
 				file.open(currentFile.c_str()); //otwórz nastêpny plik
+				lineNr = 0;
 				if (!file.good()) {
 					throw std::runtime_error("Cannot open file " + basePath + fileData.cFileName);
 				}
 			}
 		}
 		else
-			return Line(ret);
+			return Line(fileData.cFileName, ++lineNr, ret);
 	}
 }
 
@@ -51,6 +52,11 @@ std::string FileManager::getFilePath() const {
 //zwraca nazwê obecnie otwartego pliku
 std::string FileManager::getFileName() const {
 	return std::string(fileData.cFileName);
+}
+
+//zwraca numer ostatniej odczytanej linii
+unsigned int FileManager::getLineNr() const {
+	return lineNr;
 }
 
 //informuje czy pobrano ju¿ wszystkie linie z wszystkich plików
