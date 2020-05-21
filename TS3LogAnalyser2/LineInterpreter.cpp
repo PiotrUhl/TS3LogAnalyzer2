@@ -28,10 +28,18 @@ time_t LineInterpreter::getTime(const Line& line, bool skipValidation) const {
 	catch (const std::logic_error&) {
 		throw std::invalid_argument("Not a correct line (date conversion failed)!");
 	}
-	return mktime(&tm) - _timezone;
+	long timezone;
+	_get_timezone(&timezone); //pobieranie ró¿nicy miêdzy czasem lokalnym a uniwersalnym
+	return mktime(&tm) - timezone;
 }
 
 //sprawdza rodzaj wpisu w linii
 RecordType LineInterpreter::checkRecordType(const Line& line) const {
-	return RecordType();
+	auto map = dictionary.getIdentMap();
+	for (auto k : map) {
+		if (std::regex_match(line.getLine(), k.second)) {
+			return k.first;
+		}
+	}
+	return RecordType::UNIDENTIFIED;
 }

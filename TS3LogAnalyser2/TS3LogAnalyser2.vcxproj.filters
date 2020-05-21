@@ -40,6 +40,9 @@
     <ClCompile Include="LineInfo1id1name1ip.cpp">
       <Filter>Classes\LineInfo</Filter>
     </ClCompile>
+    <ClCompile Include="RegexDictionary.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileManager.h">
@@ -77,6 +80,9 @@
     </ClInclude>
     <ClInclude Include="LineInfo1id1name1ip.h">
       <Filter>Classes\LineInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="RegexDictionary.h">
+      <Filter>Classes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

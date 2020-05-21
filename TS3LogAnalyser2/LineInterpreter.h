@@ -3,10 +3,14 @@
 class Line; //Line
 class LineInfo; //LineInfo
 #include "RecordType.hpp"
+#include "RegexDictionary.h"
 #include <memory>
 #include <ctime>
 
+class RegexDictionary;
+
 class LineInterpreter {
+	RegexDictionary dictionary; //s³ownik wyra¿eñ regularnych
 public:
 	//interpretuje linie
 	std::unique_ptr<LineInfo> interpretLine(const Line& line) const;
