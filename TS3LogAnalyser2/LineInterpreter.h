@@ -11,7 +11,7 @@ public:
 	//interpretuje linie
 	std::unique_ptr<LineInfo> interpretLine(const Line& line) const;
 	//odczytuje znacznik czasowy linii
-	time_t getTime(const Line& line) const;
+	time_t getTime(const Line& line, bool skipValidation = false) const;
 	//sprawdza rodzaj wpisu w linii
 	RecordType checkRecordType(const Line& line) const;
 };
