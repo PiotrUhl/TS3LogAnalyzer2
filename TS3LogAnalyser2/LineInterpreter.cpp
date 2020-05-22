@@ -3,18 +3,47 @@
 #include "LineInfo.h"
 #include <regex>
 
+//sprawdza poprawnoœæ pocz¹tkowej czêœci lini
+bool LineInterpreter::checkLine(const Line& line) const {
+	return std::regex_match(line.getLine(), std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.(\d){6}\|.*)"));
+}
+
+//próbuje naprawiæ niepoprawn¹ liniê
+Line LineInterpreter::fixLine(const Line& line) const {
+	std::smatch match;
+	std::string str = line.getLine();
+	if (std::regex_search(str, match, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.(\d){6}\|.*)")) == false) {
+		throw std::invalid_argument("Not a correct line (date validation failed) - fixing failed!");
+	}
+	else {
+		return Line(line.getFile(), line.getNumber(), match[0]);
+	}
+}
+
 //interpretuje linie
 std::unique_ptr<LineInfo> LineInterpreter::interpretLine(const Line& line) const {
-	if (!std::regex_match(line.getLine(), std::regex("\\d\\d\\d\\d-\\d\\d-\\d\\d \\d\\d:\\d\\d:\\d\\d.(\\d){6}\\|.*")))
-		throw std::invalid_argument("Not a correct line (date validation failed)!");
-	return std::make_unique<LineInfo>(RecordType::UNIDENTIFIED, getTime(line, true));
+	if (!checkLine(line)) {
+		//log: invalid line, trying fix
+		Line fixedLine = fixLine(line);
+		//log: line fixed
+		return interpretLine(fixedLine);
+	}
+	RecordType type = checkRecordType(line);
+	//RecordType type = RecordType::UNIDENTIFIED;
+	time_t time = getTime(line, true);
+	return std::make_unique<LineInfo>(type, time);
 }
 
 //odczytuje znacznik czasowy linii
 time_t LineInterpreter::getTime(const Line& line, bool skipValidation) const {
-	if (!skipValidation)
-		if (!std::regex_match(line.getLine(), std::regex("\\d\\d\\d\\d-\\d\\d-\\d\\d \\d\\d:\\d\\d:\\d\\d.(\\d){6}\\|.*")))
-			throw std::invalid_argument("Not a correct line (validation failed)!");
+	if (!skipValidation) {
+		if (!checkLine(line)) {
+			//log: invalid line, trying fix
+			Line fixedLine = fixLine(line);
+			//log: line fixed
+			return getTime(fixedLine);
+		}
+	}
 	std::tm tm;
 	tm.tm_isdst = 0;
 	try {
@@ -29,7 +58,7 @@ time_t LineInterpreter::getTime(const Line& line, bool skipValidation) const {
 		throw std::invalid_argument("Not a correct line (date conversion failed)!");
 	}
 	long timezone;
-	_get_timezone(&timezone); //pobieranie ró¿nicy miêdzy czasem lokalnym a uniwersalnym
+	_get_timezone(&timezone); //ró¿nica miêdzy czasem lokalnym a uniwersalnym
 	return mktime(&tm) - timezone;
 }
 

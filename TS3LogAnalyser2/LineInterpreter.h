@@ -11,6 +11,10 @@ class RegexDictionary;
 
 class LineInterpreter {
 	RegexDictionary dictionary; //s³ownik wyra¿eñ regularnych
+	//sprawdza poprawnoœæ pocz¹tkowej czêœci lini
+	bool checkLine(const Line& line) const;
+	//próbuje naprawiæ niepoprawn¹ liniê
+	Line fixLine(const Line& line) const;
 public:
 	//interpretuje linie
 	std::unique_ptr<LineInfo> interpretLine(const Line& line) const;

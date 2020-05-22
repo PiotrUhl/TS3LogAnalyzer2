@@ -15,7 +15,8 @@
 
 int main() {
 
-	std::string basePath = "D:\\Piotr\\Folder\\Server\\logs\\"; //bazowa œcie¿ka z plikami logów
+	//std::string basePath = "D:\\Piotr\\Folder\\Server\\logs\\"; //bazowa œcie¿ka z plikami logów
+	std::string basePath = "D:\\Piotr\\Folder\\Programowanie\\C++\\Wlasne\\TS3LogAnalyser2\\logs\\"; //bazowa œcie¿ka z plikami logów
 
 	std::vector<UserData> userData; //statystyki u¿ytkowników serwera
 	ServerData serverData; //statystyki serwera
@@ -28,7 +29,15 @@ int main() {
 	for (Line line = fileManager.getLine(); line.endOfLog() == false; line = fileManager.getLine()) { //dla ka¿dej linii w ka¿dym pliku
 		if (line.getNumber() == 1)
 			std::cout << fileManager.getFileName() << '\n';
-		std::unique_ptr<LineInfo> lineInfo = lineInterpreter.interpretLine(line); //interpretacja linii
+		std::unique_ptr<LineInfo> lineInfo;
+		try {
+			lineInfo = lineInterpreter.interpretLine(line); //interpretacja linii= lineInterpreter.interpretLine(line); //interpretacja linii
+		}
+		catch (const std::invalid_argument& exc) {
+			std::cerr << "Exception thrown by LineInterpreter::interpretLine(): \"" << exc.what() << "\"\n";
+			unknownLines++;
+			continue;
+		}
 		if (lineInfo->getType() == RecordType::UNIDENTIFIED)
 			unknownLines++;
 		else {
