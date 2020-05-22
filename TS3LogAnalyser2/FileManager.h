@@ -1,7 +1,7 @@
 #pragma once
 #include <string> //std::string
 #include <windows.h> //WIN32_FIND_DATA, HANDLE
-#include <fstream> //std::ifstream
+#include <list> //std::list
 #include <string> //std::string
 
 class Line; //Line
@@ -9,7 +9,7 @@ class Line; //Line
 class FileManager {
 	WIN32_FIND_DATA fileData; //dane aktualnego pliku
 	HANDLE hFile; //uchwyt na aktualny plik
-	std::ifstream file; //aktualny strumieñ plikowy
+	std::list<std::string> fileLines; //pobrane linie aktualnego pliku
 	std::string basePath; //bazowa œcie¿ka plików logów
 	std::string currentFile; //obecnie otwarty plik
 	unsigned int lineNr; //numer ostatniej odczytanej linii
@@ -29,4 +29,7 @@ public:
 	unsigned int getLineNr() const;
 	//informuje czy pobrano ju¿ wszystkie linie z wszystkich plików
 	bool endOfLog() const;
+private:
+	//pobiera zawartoœæ pliku do fileLines
+	void readFile(const std::string& filePath);
 };
