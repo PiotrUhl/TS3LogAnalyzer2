@@ -137,6 +137,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RegexDictionary.cpp" />
     <ClCompile Include="ServerDataUpdater.cpp" />
+    <ClCompile Include="LineInfoFactory.cpp" />
     <ClCompile Include="UserDataUpdater.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +152,7 @@
     <ClInclude Include="RegexDictionary.h" />
     <ClInclude Include="ServerData.hpp" />
     <ClInclude Include="ServerDataUpdater.h" />
+    <ClInclude Include="LineInfoFactory.h" />
     <ClInclude Include="UserData.hpp" />
     <ClInclude Include="UserDataUpdater.h" />
   </ItemGroup>

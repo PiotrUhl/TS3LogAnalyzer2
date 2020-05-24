@@ -18,9 +18,6 @@
     <ClCompile Include="Line.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="LineInfo.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
     <ClCompile Include="LineInterpreter.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
@@ -43,15 +40,18 @@
     <ClCompile Include="RegexDictionary.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
+    <ClCompile Include="LineInfo.cpp">
+      <Filter>Classes\LineInfo</Filter>
+    </ClCompile>
+    <ClCompile Include="LineInfoFactory.cpp">
+      <Filter>Classes\LineInfo</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileManager.h">
       <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="Line.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="LineInfo.h">
       <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="LineInterpreter.h">
@@ -83,6 +83,12 @@
     </ClInclude>
     <ClInclude Include="RegexDictionary.h">
       <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="LineInfo.h">
+      <Filter>Classes\LineInfo</Filter>
+    </ClInclude>
+    <ClInclude Include="LineInfoFactory.h">
+      <Filter>Classes\LineInfo</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

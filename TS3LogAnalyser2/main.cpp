@@ -31,7 +31,7 @@ int main() {
 			std::cout << fileManager.getFileName() << '\n';
 		std::unique_ptr<LineInfo> lineInfo;
 		try {
-			lineInfo = lineInterpreter.interpretLine(line); //interpretacja linii= lineInterpreter.interpretLine(line); //interpretacja linii
+			lineInfo = lineInterpreter.interpretLine(line); //interpretacja linii
 		}
 		catch (const std::invalid_argument& exc) {
 			std::cerr << "Exception thrown by LineInterpreter::interpretLine(): \"" << exc.what() << "\"\n";

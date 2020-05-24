@@ -28,10 +28,9 @@ std::unique_ptr<LineInfo> LineInterpreter::interpretLine(const Line& line) const
 		//log: line fixed
 		return interpretLine(fixedLine);
 	}
-	RecordType type = checkRecordType(line);
-	//RecordType type = RecordType::UNIDENTIFIED;
 	time_t time = getTime(line, true);
-	return std::make_unique<LineInfo>(type, time);
+	RecordType type = checkRecordType(line);
+	return factory.create(type, time, line);
 }
 
 //odczytuje znacznik czasowy linii
