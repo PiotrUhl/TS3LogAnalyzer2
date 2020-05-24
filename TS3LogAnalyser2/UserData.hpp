@@ -1,7 +1,7 @@
 #pragma once
 #include <ctime> //time_t
 #include <string> //std::string
-#include <forward_list> //std::forward_list
+#include <set> //std::set
 
 //statystyki u퓓tkownika
 
@@ -36,7 +36,7 @@ struct UserData {
 	unsigned int clientGroupModified = 0; //ilo쒏 wykonanych modyfikacji grupy
 	unsigned int clientGroupWasModified = 0; //ilo쒏 modyfikacji grupy u퓓tkownika
 	std::string lastNickname; //ostatnia znana nazwa u퓓tkownika
-	std::forward_list<std::string> nicknames; //u퓓wane nazwy u퓓tkownika
+	std::set<std::string> nicknames; //u퓓wane nazwy u퓓tkownika
 
 	UserData(unsigned int _dbid) : dbid(_dbid) {}
 };
