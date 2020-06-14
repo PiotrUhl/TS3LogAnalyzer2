@@ -130,23 +130,18 @@
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="LineInfo.cpp" />
-    <ClCompile Include="LineInfo1id1name.cpp" />
-    <ClCompile Include="LineInfo1id1name1ip.cpp" />
     <ClCompile Include="LineInfo1id1name1reasonmsg.cpp" />
     <ClCompile Include="LineInterpreter.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RegexDictionary.cpp" />
     <ClCompile Include="ServerDataUpdater.cpp" />
-    <ClCompile Include="LineInfoFactory.cpp" />
     <ClCompile Include="UserDataUpdater.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="LineInfo.h" />
-    <ClInclude Include="LineInfo1id1name.h" />
-    <ClInclude Include="LineInfo1id1name1ip.h" />
     <ClInclude Include="LineInfo1id1name1reasonmsg.h" />
     <ClInclude Include="LineInterpreter.h" />
     <ClInclude Include="Log.h" />
@@ -154,7 +149,6 @@
     <ClInclude Include="RegexDictionary.h" />
     <ClInclude Include="ServerData.hpp" />
     <ClInclude Include="ServerDataUpdater.h" />
-    <ClInclude Include="LineInfoFactory.h" />
     <ClInclude Include="UserData.hpp" />
     <ClInclude Include="UserDataUpdater.h" />
   </ItemGroup>

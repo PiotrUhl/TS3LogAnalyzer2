@@ -4,9 +4,6 @@
     <Filter Include="Classes">
       <UniqueIdentifier>{9e2c9aab-0fb1-4d43-b4ff-d2547e4c975c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Classes\LineInfo">
-      <UniqueIdentifier>{8d8cf50f-0d5a-48a3-8e5c-5d531f2d6259}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Types">
       <UniqueIdentifier>{cfa899e9-1ce2-460a-89fd-bc34b22f6f0d}</UniqueIdentifier>
     </Filter>
@@ -31,22 +28,13 @@
       <Filter>Classes</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="LineInfo1id1name.cpp">
-      <Filter>Classes\LineInfo</Filter>
-    </ClCompile>
-    <ClCompile Include="LineInfo1id1name1ip.cpp">
-      <Filter>Classes\LineInfo</Filter>
-    </ClCompile>
     <ClCompile Include="RegexDictionary.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="LineInfo.cpp">
-      <Filter>Classes\LineInfo</Filter>
-    </ClCompile>
-    <ClCompile Include="LineInfoFactory.cpp">
-      <Filter>Classes\LineInfo</Filter>
-    </ClCompile>
     <ClCompile Include="LineInfo1id1name1reasonmsg.cpp" />
+    <ClCompile Include="LineInfo.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileManager.h">
@@ -76,21 +64,12 @@
     <ClInclude Include="UserData.hpp">
       <Filter>Types</Filter>
     </ClInclude>
-    <ClInclude Include="LineInfo1id1name.h">
-      <Filter>Classes\LineInfo</Filter>
-    </ClInclude>
-    <ClInclude Include="LineInfo1id1name1ip.h">
-      <Filter>Classes\LineInfo</Filter>
-    </ClInclude>
     <ClInclude Include="RegexDictionary.h">
       <Filter>Classes</Filter>
     </ClInclude>
-    <ClInclude Include="LineInfo.h">
-      <Filter>Classes\LineInfo</Filter>
-    </ClInclude>
-    <ClInclude Include="LineInfoFactory.h">
-      <Filter>Classes\LineInfo</Filter>
-    </ClInclude>
     <ClInclude Include="LineInfo1id1name1reasonmsg.h" />
+    <ClInclude Include="LineInfo.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
