@@ -132,6 +132,7 @@
     <ClCompile Include="LineInfo.cpp" />
     <ClCompile Include="LineInfo1id1name.cpp" />
     <ClCompile Include="LineInfo1id1name1ip.cpp" />
+    <ClCompile Include="LineInfo1id1name1reasonmsg.cpp" />
     <ClCompile Include="LineInterpreter.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="main.cpp" />
@@ -146,6 +147,7 @@
     <ClInclude Include="LineInfo.h" />
     <ClInclude Include="LineInfo1id1name.h" />
     <ClInclude Include="LineInfo1id1name1ip.h" />
+    <ClInclude Include="LineInfo1id1name1reasonmsg.h" />
     <ClInclude Include="LineInterpreter.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="RecordType.hpp" />

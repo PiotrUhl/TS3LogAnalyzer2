@@ -14,7 +14,7 @@ std::unique_ptr<LineInfo> LineInfoFactory::create(RecordType type, time_t time, 
 
 //tworzy podklasê LineInfo dla jednego id i jednej nazwy
 std::unique_ptr<LineInfo> LineInfoFactory::make1id1name1ip(RecordType type, time_t time, const Line & line) const {
-	return std::make_unique<LineInfo1id1name1ip>(type, time, getId(line), getNickname(line), getIp(line), getPort(line));
+	return std::make_unique<LineInfo1id1name1ip>(type, time, getId(line), getName(line), getIp(line), getPort(line));
 }
 
 //wyci¹ga id z linii
@@ -25,16 +25,18 @@ unsigned int LineInfoFactory::getId(const Line& line, unsigned int nr) const {
 	if (std::regex_search(temp, match, getIdRegex)) {
 		return std::stoi(match[0].str().substr(4, match[0].str().find(')') - 4));
 	}
+	throw std::runtime_error("Cannot find valid id!");
 }
 
-//wyci¹ga nickname z linii
-std::string LineInfoFactory::getNickname(const Line & line, unsigned int nr) const {
-	std::regex getNicknameRegex(R"('.*'\(id:\d+\))");;
+//wyci¹ga name z linii
+std::string LineInfoFactory::getName(const Line & line, unsigned int nr) const {
+	std::regex getNameRegex(R"('.*'\(id:\d+\))");;
 	std::smatch match;
 	const std::string& temp = line.getLine();
-	if (std::regex_search(temp, match, getNicknameRegex)) {
+	if (std::regex_search(temp, match, getNameRegex)) {
 		return match[0].str().substr(1, match[0].str().find('\'', 1) - 1);
 	}
+	throw std::runtime_error("Cannot find valid name!");
 }
 
 //wyci¹ga ip z linii
@@ -45,6 +47,7 @@ std::string LineInfoFactory::getIp(const Line& line, unsigned int nr) const {
 	if (std::regex_search(temp, match, getIpRegex)) {
 		return match[0].str().substr(0, match[0].str().find(':'));
 	}
+	throw std::runtime_error("Cannot find valid IP!");
 }
 
 //wyci¹ga port z linii
@@ -56,4 +59,5 @@ unsigned short int LineInfoFactory::getPort(const Line& line, unsigned int nr) c
 		std::string str = match[0].str().substr(match[0].str().find(':') + 1); //debug
 		return std::stoi(str);
 	}
+	throw std::runtime_error("Cannot find valid port!");
 }

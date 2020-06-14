@@ -15,7 +15,7 @@ private:
 	//wyci퉓a id z linii
 	unsigned int getId(const Line& line, unsigned int nr = 0) const;
 	//wyci퉓a nickname z linii
-	std::string getNickname(const Line& line, unsigned int nr = 0) const;
+	std::string getName(const Line& line, unsigned int nr = 0) const;
 	//wyci퉓a ip z linii
 	std::string getIp(const Line& line, unsigned int nr = 0) const;
 	//wyci퉓a port z linii

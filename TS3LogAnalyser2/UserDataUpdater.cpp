@@ -17,7 +17,7 @@ void UserDataUpdater::updateClientConnected(const LineInfo& lineInfo) {
 	const LineInfo1id1name1ip& info = static_cast<const LineInfo1id1name1ip&>(lineInfo);
 	unsigned int id = info.getId1();
 	while (userData.size() <= id) { //brak u¿ytkownika w bazie
-		userData.push_back(UserData(userData.size()));
+		userData.push_back(UserData(static_cast<unsigned int>(userData.size()))); //cast only to suppress warning
 	}
 	userData[id].clientConnected++;
 	if (userData[id].connectedClients++ == 0)

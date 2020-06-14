@@ -46,6 +46,7 @@
     <ClCompile Include="LineInfoFactory.cpp">
       <Filter>Classes\LineInfo</Filter>
     </ClCompile>
+    <ClCompile Include="LineInfo1id1name1reasonmsg.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileManager.h">
@@ -90,5 +91,6 @@
     <ClInclude Include="LineInfoFactory.h">
       <Filter>Classes\LineInfo</Filter>
     </ClInclude>
+    <ClInclude Include="LineInfo1id1name1reasonmsg.h" />
   </ItemGroup>
 </Project>
