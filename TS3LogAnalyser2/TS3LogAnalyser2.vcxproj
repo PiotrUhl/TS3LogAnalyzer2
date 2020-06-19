@@ -130,7 +130,6 @@
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="LineInfo.cpp" />
-    <ClCompile Include="LineInfo1id1name1reasonmsg.cpp" />
     <ClCompile Include="LineInterpreter.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="main.cpp" />
@@ -142,7 +141,6 @@
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="LineInfo.h" />
-    <ClInclude Include="LineInfo1id1name1reasonmsg.h" />
     <ClInclude Include="LineInterpreter.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="RecordType.hpp" />
@@ -152,7 +150,17 @@
     <ClInclude Include="UserData.hpp" />
     <ClInclude Include="UserDataUpdater.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\boost.1.72.0.0\build\boost.targets" Condition="Exists('..\packages\boost.1.72.0.0\build\boost.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\boost.1.72.0.0\build\boost.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\boost.1.72.0.0\build\boost.targets'))" />
+  </Target>
 </Project>

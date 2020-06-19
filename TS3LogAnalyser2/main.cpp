@@ -1,5 +1,6 @@
+#define WIN32_LEAN_AND_MEAN
+
 #include <iostream>
-#include <windows.h>
 #include <vector>
 
 #include "UserData.hpp"
@@ -12,6 +13,7 @@
 #include "Line.h"
 #include "LineInfo.h"
 #include "RecordType.hpp"
+
 
 int main() {
 
@@ -29,21 +31,20 @@ int main() {
 	for (Line line = fileManager.getLine(); line.endOfLog() == false; line = fileManager.getLine()) { //dla ka¿dej linii w ka¿dym pliku
 		if (line.getNumber() == 1)
 			std::cout << fileManager.getFileName() << '\n';
-		std::unique_ptr<LineInfo> lineInfo;
 		try {
-			lineInfo = lineInterpreter.interpretLine(line); //interpretacja linii
+			LineInfo lineInfo(lineInterpreter.interpretLine(line)); //interpretacja linii
+			if (lineInfo.getType() == RecordType::UNIDENTIFIED)
+				unknownLines++;
+			else {
+				userDataUpdater.update(lineInfo); //aktualizacja statystyk u¿ytkowników o informacje z odczytanej linii
+				serverDataUpdater.update(lineInfo); //aktualizacja statystyk serwera o informacje z odczytanej linii
+			}
 		}
 		catch (const std::invalid_argument& exc) {
 			std::cerr << "Exception thrown by LineInterpreter::interpretLine(): \"" << exc.what() << "\"\n";
 			unknownLines++;
-			continue;
 		}
-		if (lineInfo->getType() == RecordType::UNIDENTIFIED)
-			unknownLines++;
-		else {
-			userDataUpdater.update(*lineInfo); //aktualizacja statystyk u¿ytkowników o informacje z odczytanej linii
-			serverDataUpdater.update(*lineInfo); //aktualizacja statystyk serwera o informacje z odczytanej linii
-		}
+
 	}
 	
 	//zapis wyników

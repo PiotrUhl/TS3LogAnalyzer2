@@ -31,7 +31,6 @@
     <ClCompile Include="RegexDictionary.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
-    <ClCompile Include="LineInfo1id1name1reasonmsg.cpp" />
     <ClCompile Include="LineInfo.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
@@ -67,9 +66,11 @@
     <ClInclude Include="RegexDictionary.h">
       <Filter>Classes</Filter>
     </ClInclude>
-    <ClInclude Include="LineInfo1id1name1reasonmsg.h" />
     <ClInclude Include="LineInfo.h">
       <Filter>Classes</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

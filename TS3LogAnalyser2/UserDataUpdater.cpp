@@ -1,6 +1,5 @@
 #include "UserDataUpdater.h"
 #include "LineInfo.h"
-#include "LineInfo1id1name1ip.h"
 #include "UserData.hpp"
 
 //dopisuje zawartoœæ rekordu do statystyk odpowiednich u¿ytkowników
@@ -14,14 +13,13 @@ void UserDataUpdater::update(const LineInfo& lineInfo) {
 }
 
 void UserDataUpdater::updateClientConnected(const LineInfo& lineInfo) {
-	const LineInfo1id1name1ip& info = static_cast<const LineInfo1id1name1ip&>(lineInfo);
-	unsigned int id = info.getId1();
+	unsigned int id = lineInfo.get1id();
 	while (userData.size() <= id) { //brak u¿ytkownika w bazie
 		userData.push_back(UserData(static_cast<unsigned int>(userData.size()))); //cast only to suppress warning
 	}
 	userData[id].clientConnected++;
 	if (userData[id].connectedClients++ == 0)
-		userData[id].currentTime = info.getTime();
-	userData[id].lastNickname = info.getName1();
-	userData[id].nicknames.insert(info.getName1());
+		userData[id].currentTime = lineInfo.getTime();
+	userData[id].lastNickname = lineInfo.get1nickname();
+	userData[id].nicknames.insert(lineInfo.get1nickname());
 }

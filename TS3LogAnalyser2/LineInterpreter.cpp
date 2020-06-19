@@ -21,7 +21,7 @@ Line LineInterpreter::fixLine(const Line& line) const {
 }
 
 //interpretuje linie
-std::unique_ptr<LineInfo> LineInterpreter::interpretLine(const Line& line) const {
+LineInfo LineInterpreter::interpretLine(const Line& line) const {
 	if (!checkLine(line)) {
 		//log: invalid line, trying fix
 		Line fixedLine = fixLine(line);
@@ -30,7 +30,10 @@ std::unique_ptr<LineInfo> LineInterpreter::interpretLine(const Line& line) const
 	}
 	time_t time = getTime(line, true);
 	RecordType type = checkRecordType(line);
-	return factory.create(type, time, line);
+	switch (type) {
+	default:
+		return LineInfo();
+	}
 }
 
 //odczytuje znacznik czasowy linii
