@@ -20,11 +20,20 @@ Line LineInterpreter::fixLine(const Line& line) const {
 	}
 }
 //tworzy objekt LineInfo z podanych danych
-LineInfo LineInterpreter::makeLineInfo(time_t time, RecordType type, const Line& line) {
-	switch (type) {
-	default:
-		return LineInfo();
+LineInfo LineInterpreter::makeLineInfo(time_t time, RecordType type, const Line& line) const {
+	LineInfo lineInfo(type, time);
+	auto map = dictionary.getDataMap(); //pobiera s³ownik regexów
+	auto dataAccessInfo = map.at(type); //wyci¹ga wpis dla danego typu
+	std::string str = line.getLine();
+	std::smatch result; 
+	std::regex_search(str, result, dataAccessInfo.first); //pobiera wszystkie dane z linii do smatch
+
+	auto indexDirectory = dataAccessInfo.second; //tablica umo¿liwiaj¹ca rozpoznanie danych w smatch
+	for (int i = 0; i < indexDirectory.size(); i++) {
+		if (indexDirectory[i] != LineData::NONE)
+			lineInfo.setData(indexDirectory[i], result[i]); //informacja pod danym indeksem wyniku regexa jest dan¹ rodzaju opisanego pod tym samym indeksem w tablicy indexDirectory
 	}
+	return lineInfo;
 }
 
 //interpretuje linie
@@ -37,7 +46,7 @@ LineInfo LineInterpreter::interpretLine(const Line& line) const {
 	}
 	time_t time = getTime(line, true);
 	RecordType type = checkRecordType(line);
-	return LineInfo();
+	return makeLineInfo(time, type, line);
 }
 
 //odczytuje znacznik czasowy linii
