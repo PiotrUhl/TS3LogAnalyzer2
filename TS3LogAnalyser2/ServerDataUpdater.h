@@ -11,5 +11,8 @@ public:
 	ServerDataUpdater(ServerData& _serverData) : serverData(_serverData) {}
 	//dopisuje zawartoœæ rekordu do statystyk serwera
 	void update(const LineInfo& lineInfo);
+private:
+	//dopisuje zawartoœæ rekordu do statystyk serwera
+	void updateClientDisconnected(const LineInfo& lineInfo);
 };
 

@@ -8,8 +8,10 @@ void UserDataUpdater::update(const LineInfo& lineInfo) {
 	switch (lineInfo.getType()) {
 	case RecordType::CLIENT_CONNECTED:
 		updateClientConnected(lineInfo);
+		break;
 	case RecordType::CLIENT_DISCONNECTED:
 		updateClientDisconnected(lineInfo);
+		break;
 	};
 }
 
