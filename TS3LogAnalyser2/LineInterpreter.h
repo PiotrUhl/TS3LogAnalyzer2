@@ -23,5 +23,7 @@ private:
 	bool checkLine(const Line& line) const;
 	//próbuje naprawiæ niepoprawn¹ liniê
 	Line fixLine(const Line& line) const;
+	//tworzy objekt LineInfo z podanych danych
+	LineInfo makeLineInfo(time_t time, RecordType type, const Line& line);
 };
 

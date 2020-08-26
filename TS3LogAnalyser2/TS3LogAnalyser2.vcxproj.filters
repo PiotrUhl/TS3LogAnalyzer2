@@ -69,6 +69,9 @@
     <ClInclude Include="LineInfo.h">
       <Filter>Classes</Filter>
     </ClInclude>
+    <ClInclude Include="LineData.hpp">
+      <Filter>Types</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

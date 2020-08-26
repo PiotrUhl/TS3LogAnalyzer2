@@ -19,6 +19,13 @@ Line LineInterpreter::fixLine(const Line& line) const {
 		return Line(line.getFile(), line.getNumber(), match[0]);
 	}
 }
+//tworzy objekt LineInfo z podanych danych
+LineInfo LineInterpreter::makeLineInfo(time_t time, RecordType type, const Line& line) {
+	switch (type) {
+	default:
+		return LineInfo();
+	}
+}
 
 //interpretuje linie
 LineInfo LineInterpreter::interpretLine(const Line& line) const {
@@ -30,10 +37,7 @@ LineInfo LineInterpreter::interpretLine(const Line& line) const {
 	}
 	time_t time = getTime(line, true);
 	RecordType type = checkRecordType(line);
-	switch (type) {
-	default:
-		return LineInfo();
-	}
+	return LineInfo();
 }
 
 //odczytuje znacznik czasowy linii
