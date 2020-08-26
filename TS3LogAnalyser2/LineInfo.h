@@ -3,7 +3,9 @@
 #include <string> //std::string
 #include <optional> //std::optional
 #include "RecordType.hpp" //RecordType
-#include "boost/asio/ip/address.hpp" //boost::asio::ip::address, boost::asio::ip::make_address()
+#pragma warning(push, 0) //to avoid boost warnings
+#include <boost/asio/ip/address.hpp> //boost::asio::ip::address, boost::asio::ip::make_address()
+#pragma warning(pop)
 
 typedef unsigned int uint;
 typedef unsigned short ushort;
