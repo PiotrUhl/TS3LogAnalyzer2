@@ -15,5 +15,6 @@ public:
 private:
 	//dopisuje zawartoœæ rekordu do statystyk odpowiednich u¿ytkowników
 	void updateClientConnected(const LineInfo& lineInfo);
+	void updateClientDisconnected(const LineInfo& lineInfo);
 };
 
