@@ -1,13 +1,10 @@
 #pragma once
 #include <ctime> //time_t
 #include <string> //std::string
-#include <any> //std::any
 #include <utility> //std::pair
+#include <map> //std::map
 #include "RecordType.hpp" //RecordType
 #include "LineData.hpp" //LineData
-#pragma warning(push, 0) //to avoid boost warnings
-#include <boost/asio/ip/address.hpp> //boost::asio::ip::address, boost::asio::ip::make_address()
-#pragma warning(pop)
 
 typedef unsigned int uint;
 typedef unsigned short ushort;
@@ -16,7 +13,7 @@ typedef unsigned short ushort;
 class LineInfo {
 	time_t time; //znacznik czasowy rekordu
 	RecordType recordType; //typ rekordu
-	std::map<LineData, std::any> dataMap;
+	std::map<LineData, std::string> dataMap;
 
 public:
 	//konstruktory i operatory przypisania
@@ -29,7 +26,7 @@ public:
 	~LineInfo() = default;
 
 	//ustawia dan¹ pod podanym indeksem
-	void setData(LineData index, std::any data);
+	void setData(LineData index, std::string data);
 
 	//zwraca typ rekordu
 	RecordType getType() const;
@@ -39,8 +36,8 @@ public:
 	uint getInt(LineData index) const;
 	uint getUint(LineData index) const;
 	std::string getString(LineData index) const;
-	boost::asio::ip::address getIp(LineData index) const;
-	ushort getShort(LineData index) const;
+	std::string getIp(LineData index) const; //string is temporary, replace with something better
+	short getShort(LineData index) const;
 	ushort getUshort(LineData index) const;
 };
 

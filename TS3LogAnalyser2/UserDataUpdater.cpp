@@ -16,7 +16,7 @@ void UserDataUpdater::update(const LineInfo& lineInfo) {
 }
 
 void UserDataUpdater::updateClientConnected(const LineInfo& lineInfo) {
-	unsigned int id = lineInfo.getInt(LineData::ID1);
+	unsigned int id = lineInfo.getUint(LineData::ID1);
 	while (userData.size() <= id) { //brak u¿ytkownika w bazie
 		userData.push_back(UserData(static_cast<unsigned int>(userData.size()))); //cast only to suppress warning
 	}

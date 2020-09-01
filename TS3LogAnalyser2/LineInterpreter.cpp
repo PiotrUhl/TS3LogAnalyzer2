@@ -46,6 +46,8 @@ LineInfo LineInterpreter::interpretLine(const Line& line) const {
 	}
 	time_t time = getTime(line, true);
 	RecordType type = checkRecordType(line);
+	if (type == RecordType::UNIDENTIFIED) //typ nierozmoznany
+		return LineInfo(type, time);
 	return makeLineInfo(time, type, line);
 }
 

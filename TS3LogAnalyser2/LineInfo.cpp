@@ -1,7 +1,11 @@
 #include "LineInfo.h"
+#include <limits>
+#include <stdexcept>
+
+#define ulong unsigned long
 
 //ustawia dan¹ pod podanym indeksem
-void LineInfo::setData(LineData index, std::any data) {
+void LineInfo::setData(LineData index, std::string data) {
 	dataMap.insert_or_assign(index, data);
 }
 
@@ -17,48 +21,79 @@ time_t LineInfo::getTime() const {
 
 //zwraca dan¹ spod adresu LineData o okreœlonym type (std::invalid_argument jeœli niedostêpne; std::logic_error je¿eli z³y typ)
 uint LineInfo::getInt(LineData index) const {
-	return getUint(index);
+	std::string data = dataMap.at(index);
+	if (data.empty())
+		throw std::invalid_argument("LineInfo::getInt(): No data at given index");
+	try {
+		return std::stoi(data);
+	}
+	catch (const std::invalid_argument&) {
+		throw std::invalid_argument("LineInfo::getInt(): Data at given position isn't an int");
+	}
+	catch (const std::out_of_range&) {
+		throw std::invalid_argument("LineInfo::getInt(): Data at given position isn't out of int range");
+	}
 }
 uint LineInfo::getUint(LineData index) const {
-	std::any data = dataMap.at(index);
-	if (data.has_value() == false)
-		throw std::invalid_argument("No data at given index");
-	if (data.type() == typeid(int))
-		return std::any_cast<int>(data);
-	else if (data.type() == typeid(uint))
-		return std::any_cast<uint>(data);
-	else
-		throw std::logic_error("Data at given index is type \'" + std::string(data.type().name()) + "\'which cannot be converted to int.");
+	std::string data = dataMap.at(index);
+	if (data.empty())
+		throw std::invalid_argument("LineInfo::getUint(): No data at given index");
+	try {
+		ulong temp = std::stoul(data);
+		if (/*temp < std::numeric_limits<uint>::min() || */temp > std::numeric_limits<uint>::max())
+			throw std::invalid_argument("LineInfo::getUint(): Data at given position isn't out of unsigned int range");
+		return static_cast<uint>(temp);
+	}
+	catch (const std::invalid_argument&) {
+		throw std::invalid_argument("LineInfo::getUint(): Data at given position isn't an unsigned int");
+	}
+	catch (const std::out_of_range&) {
+		throw std::invalid_argument("LineInfo::getUint(): Data at given position isn't out of unsigned int range");
+	}
 }
 std::string LineInfo::getString(LineData index) const {
-	std::any data = dataMap.at(index);
-	if (data.has_value() == false)
-		throw std::invalid_argument("No data at given index");
-	else if (data.type() == typeid(std::string))
-		return std::any_cast<std::string>(data);
-	else
-		throw std::logic_error("Data at given index is type \'" + std::string(data.type().name()) + "\'which cannot be converted to string.");
+	std::string data = dataMap.at(index);
+	if (data.empty())
+		throw std::invalid_argument("LineInfo::getString(): No data at given index");
+	return data;
 }
-boost::asio::ip::address LineInfo::getIp(LineData index) const {
-	std::any data = dataMap.at(index);
-	if (data.has_value() == false)
-		throw std::invalid_argument("No data at given index");
-	else if (data.type() == typeid(boost::asio::ip::address))
-		return std::any_cast<boost::asio::ip::address>(data);
-	else
-		throw std::logic_error("Data at given index is type \'" + std::string(data.type().name()) + "\'which cannot be converted to ip address.");
+std::string LineInfo::getIp(LineData index) const {
+	std::string data = dataMap.at(index);
+	if (data.empty())
+		throw std::invalid_argument("LineInfo::getIp(): No data at given index");
+	return data;
 }
-ushort LineInfo::getShort(LineData index) const {
-	return getUshort(index);
+short LineInfo::getShort(LineData index) const {
+	std::string data = dataMap.at(index);
+	if (data.empty())
+		throw std::invalid_argument("LineInfo::getUint(): No data at given index");
+	try {
+		int temp = std::stoi(data);
+		if (temp < std::numeric_limits<short>::min() || temp > std::numeric_limits<short>::max())
+			throw std::invalid_argument("LineInfo::getUint(): Data at given position isn't out of short int range");
+		return static_cast<uint>(temp);
+	}
+	catch (const std::invalid_argument&) {
+		throw std::invalid_argument("LineInfo::getUint(): Data at given position isn't an short int");
+	}
+	catch (const std::out_of_range&) {
+		throw std::invalid_argument("LineInfo::getUint(): Data at given position isn't out of short int range");
+	}
 }
 ushort LineInfo::getUshort(LineData index) const {
-	std::any data = dataMap.at(index);
-	if (data.has_value() == false)
-		throw std::invalid_argument("No data at given index");
-	if (data.type() == typeid(short))
-		return std::any_cast<short>(data);
-	else if (data.type() == typeid(ushort))
-		return std::any_cast<ushort>(data);
-	else
-		throw std::logic_error("Data at given index is type \'" + std::string(data.type().name()) + "\'which cannot be converted to short int.");
+	std::string data = dataMap.at(index);
+	if (data.empty())
+		throw std::invalid_argument("LineInfo::getUint(): No data at given index");
+	try {
+		ulong temp = std::stoul(data);
+		if (/*temp < std::numeric_limits<ushort>::min() || */temp > std::numeric_limits<ushort>::max())
+			throw std::invalid_argument("LineInfo::getUint(): Data at given position isn't out of unsigned short int range");
+		return static_cast<uint>(temp);
+	}
+	catch (const std::invalid_argument&) {
+		throw std::invalid_argument("LineInfo::getUint(): Data at given position isn't an unsigned short int");
+	}
+	catch (const std::out_of_range&) {
+		throw std::invalid_argument("LineInfo::getUint(): Data at given position isn't out of unsigned short int range");
+	}
 }
