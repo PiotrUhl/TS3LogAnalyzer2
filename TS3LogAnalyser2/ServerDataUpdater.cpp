@@ -17,6 +17,9 @@ void ServerDataUpdater::update(const LineInfo& lineInfo) {
 		//todo: liczenie uptimu
 		serverData.stopped++;
 		break;
+	case RecordType::PERMISSION_CHANGED:
+		serverData.permissionModified++;
+		break;
 	case RecordType::CLIENT_CONNECTED:
 		serverData.clientConnected++;
 		break;

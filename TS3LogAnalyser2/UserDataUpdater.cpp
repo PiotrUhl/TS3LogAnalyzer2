@@ -7,7 +7,10 @@
 void UserDataUpdater::update(const LineInfo& lineInfo) {
 	switch (lineInfo.getType()) {
 	case RecordType::SERVER_MODIFIED:
-		userData[lineInfo.getUint(LineData::ID1)].serverModified++;
+		getUser(lineInfo.getUint(LineData::ID1)).serverModified++;
+		break;
+	case RecordType::PERMISSION_CHANGED:
+		getUser(lineInfo.getUint(LineData::ID1)).permissionModified++;
 		break;
 	case RecordType::CLIENT_CONNECTED:
 		updateClientConnected(lineInfo);
@@ -18,32 +21,33 @@ void UserDataUpdater::update(const LineInfo& lineInfo) {
 	};
 }
 
-
-void UserDataUpdater::updateClientConnected(const LineInfo& lineInfo) {
-	unsigned int id = lineInfo.getUint(LineData::ID1);
+//zwraca referencjê na strukturê u¿ytkownika o podanym id; dodaje u¿ytkownika jeœli trzeba
+UserData& UserDataUpdater::getUser(uint id) {
 	while (userData.size() <= id) { //brak u¿ytkownika w bazie
 		userData.push_back(UserData(static_cast<unsigned int>(userData.size()))); //cast only to suppress warning
 	}
-	userData[id].clientConnected++;
-	if (userData[id].connectedClients++ == 0)
-		userData[id].currentTime = lineInfo.getTime();
-	userData[id].lastNickname = lineInfo.getString(LineData::NAME1);
-	userData[id].nicknames.insert(lineInfo.getString(LineData::NAME1));
+	return userData.at(id);
+}
+
+void UserDataUpdater::updateClientConnected(const LineInfo& lineInfo) {
+	UserData& user = getUser(lineInfo.getUint(LineData::ID1));
+	user.clientConnected++;
+	if (user.connectedClients++ == 0)
+		user.currentTime = lineInfo.getTime();
+	user.lastNickname = lineInfo.getString(LineData::NAME1);
+	user.nicknames.insert(lineInfo.getString(LineData::NAME1));
 }
 
 void UserDataUpdater::updateClientDisconnected(const LineInfo& lineInfo) {
-	unsigned int id = lineInfo.getUint(LineData::ID1);
-	/*while (userData.size() <= id) { //brak u¿ytkownika w bazie
-		userData.push_back(UserData(static_cast<unsigned int>(userData.size()))); //cast only to suppress warning
-	}*/
-
+	UserData& user = getUser(lineInfo.getUint(LineData::ID1));
 	std::string reasonmsg = lineInfo.getString(LineData::MESSAGE1);
-	userData[id].clientDisconnectedLeaving++; //todo: rozró¿nianie typu disconnectu po reasonmsg
+	user.clientDisconnectedLeaving++; //todo: rozró¿nianie typu disconnectu po reasonmsg
 
-	if (userData[id].connectedClients-- == 1) { //je¿eli nie ma wiêcej kopii u¿ytkownika na serwerze, liczymy czas
-		time_t uptime = lineInfo.getTime() - userData[id].currentTime; //czas który u¿ytkownik spêdzi³ na serwerze prze tym roz³¹czeniem (od ostatniego po³¹czenia)
-		userData[id].upTime += uptime;
-		if (userData[id].maxUpTime < uptime)
-			userData[id].maxUpTime = uptime;
+	if (user.connectedClients-- == 1) { //je¿eli nie ma wiêcej kopii u¿ytkownika na serwerze, liczymy czas
+		time_t uptime = lineInfo.getTime() - user.currentTime; //czas który u¿ytkownik spêdzi³ na serwerze prze tym roz³¹czeniem (od ostatniego po³¹czenia)
+		user.upTime += uptime;
+		if (user.maxUpTime < uptime)
+			user.maxUpTime = uptime;
+			user.maxUpTime = uptime;
 	}
 }
