@@ -6,7 +6,13 @@
 void ServerDataUpdater::update(const LineInfo& lineInfo) {
 	switch (lineInfo.getType()) {
 	case RecordType::SERVER_STARTED:
+		//todo: sprawdziæ czy wszycy u¿ytkownicy s¹ roz³¹czeni
+		//todo: liczenie uptimu
 		serverData.started++;
+		break;
+	case RecordType::SERVER_STOPPED:
+		//todo: liczenie uptimu
+		serverData.stopped++;
 		break;
 	case RecordType::CLIENT_CONNECTED:
 		serverData.clientConnected++;

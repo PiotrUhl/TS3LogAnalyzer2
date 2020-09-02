@@ -1,4 +1,5 @@
 #define WIN32_LEAN_AND_MEAN
+#define DONT_CATCH_EXCEPTIONS_IN_MAIN //debug
 
 #include <iostream>
 #include <vector>
@@ -35,7 +36,9 @@ int main() {
 	for (Line line = fileManager.getLine(); line.endOfLog() == false; line = fileManager.getLine()) { //dla ka¿dej linii w ka¿dym pliku
 		if (line.getNumber() == 1)
 			std::cout << fileManager.getFileName() << '\n';
+#ifndef DONT_CATCH_EXCEPTIONS_IN_MAIN
 		try {
+#endif
 			LineInfo lineInfo = lineInterpreter.interpretLine(line); //interpretacja linii
 			if (lineInfo.getType() == RecordType::UNIDENTIFIED)
 				unknownLines++;
@@ -43,13 +46,14 @@ int main() {
 				userDataUpdater.update(lineInfo); //aktualizacja statystyk u¿ytkowników o informacje z odczytanej linii
 				serverDataUpdater.update(lineInfo); //aktualizacja statystyk serwera o informacje z odczytanej linii
 			}
+#ifndef DONT_CATCH_EXCEPTIONS_IN_MAIN
 		}
 		catch (const std::exception& exc) {
 			std::cerr << "Exception thrown at line:\n" << line.getLine() << "\n" << typeid(exc).name() << ": \"" << exc.what() << "\"\n";
 			exceptions++;
 			unknownLines++;
 		}
-
+#endif
 	}
 	
 	//zapis wyników
