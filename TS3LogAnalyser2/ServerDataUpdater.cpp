@@ -23,6 +23,9 @@ void ServerDataUpdater::update(const LineInfo& lineInfo) {
 	case RecordType::QUERY_CONNECTED:
 		serverData.queryClientConnected++;
 		break;
+	case RecordType::QUERY_DISCONNECTED:
+		serverData.queryClientDisonnected++;
+		break;
 	case RecordType::CLIENT_CONNECTED:
 		serverData.clientConnected++;
 		break;

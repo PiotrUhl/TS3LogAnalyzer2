@@ -15,6 +15,10 @@ void UserDataUpdater::update(const LineInfo& lineInfo) {
 	case RecordType::QUERY_CONNECTED:
 		getUser(lineInfo.getUint(LineData::ID1)).clientConnectedQuery++;
 		break;
+	case RecordType::QUERY_DISCONNECTED:
+		//todo: rozró¿nianie rodzaju wyjœcia query po reasonmsg
+		getUser(lineInfo.getUint(LineData::ID1)).clientDisconnectedQuery++;
+		break;
 	case RecordType::CLIENT_CONNECTED:
 		updateClientConnected(lineInfo);
 		break;
