@@ -45,6 +45,9 @@ void ServerDataUpdater::update(const LineInfo& lineInfo) {
 	case RecordType::BAN_EXPIRED:
 		serverData.bansExpired++;
 		break;
+	case RecordType::COMPLAINT_ADDED:
+		serverData.complaint++;
+		break;
 	}
 }
 

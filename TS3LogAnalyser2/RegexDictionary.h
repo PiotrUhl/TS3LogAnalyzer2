@@ -22,7 +22,7 @@ class RegexDictionary {
 		{RecordType::BAN_ADDED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServer \|(?:  \d+|\d+  )\| ?ban added reason='(.*)' (cluid|ip|name)='(.+)' bantime=(\d+) by client '(.+)'\(id:(\d+)\))")},
 		{RecordType::BAN_DELETED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServer \|(?:  \d+|\d+  )\| ?ban deleted reason='(.*)' (cluid|ip|name)='(.+)' bantime=(\d+) by client '(.+)'\(id:(\d+)\))")},
 		{RecordType::BAN_EXPIRED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|BanManager    \|(?:  \d+|\d+  )\| ?ban deleted \(expired\) reason='(.*)' (cluid|ip|name)='(.+)' bantime=(\d+) by client '(.+)'\(id:(\d+)\))")},
-		//{RecordType::COMPLAINT_ADDED, std::regex("")},
+		{RecordType::COMPLAINT_ADDED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServer \|(?:  \d+|\d+  )\| ?complaint added for client '(.+)'\(id:(\d+)\) reason '(.*)' by client '(.+)'\(id:(\d+)\))")},
 		//{RecordType::COMPLAINT_DELETED, std::regex("")},
 		//{RecordType::COMPLAINT_ALL_DELETED, std::regex("")},
 		//{RecordType::CHANNEL_CREATED, std::regex("")},
@@ -51,7 +51,8 @@ class RegexDictionary {
 		{RecordType::CLIENT_CHANNELGROUP_MODIFIED, {std::regex(R"(client '(.+)'\(id:(\d+)\) was added to channelgroup '(.+)'\(id:(\d+)\) by client '(.+)'\(id:(\d+)\) in channel '(.+)'\(id:(\d+)\))"), {LineData::NONE, LineData::NAME1, LineData::ID1, LineData::NAME2, LineData::ID2, LineData::NAME3, LineData::ID3, LineData::NAME4, LineData::ID4}}},
 		{RecordType::BAN_ADDED, {std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServer \|(?:  \d+|\d+  )\| ?ban added reason='(.*)' (cluid|ip|name)='(.+)' bantime=(\d+) by client '(.+)'\(id:(\d+)\))"), {LineData::NONE, LineData::MESSAGE1, LineData::NONE /*ban target type*/, LineData::NONE /*ban target*/, LineData::NONE /*ban time*/, LineData::NAME1, LineData::ID1}}},
 		{RecordType::BAN_DELETED, {std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServer \|(?:  \d+|\d+  )\| ?ban deleted reason='(.*)' (cluid|ip|name)='(.+)' bantime=(\d+) by client '(.+)'\(id:(\d+)\))"), {LineData::NONE, LineData::MESSAGE1, LineData::NONE /*ban target type*/, LineData::NONE /*ban target*/, LineData::NONE /*ban time*/, LineData::NAME1, LineData::ID1}}},
-		{RecordType::BAN_EXPIRED, {std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|BanManager    \|(?:  \d+|\d+  )\| ?ban deleted \(expired\) reason='(.*)' (cluid|ip|name)='(.+)' bantime=(\d+) by client '(.+)'\(id:(\d+)\))"), {LineData::NONE, LineData::MESSAGE1, LineData::NONE /*ban target type*/, LineData::NONE /*ban target*/, LineData::NONE /*ban time*/, LineData::NAME1, LineData::ID1}}}
+		{RecordType::BAN_EXPIRED, {std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|BanManager    \|(?:  \d+|\d+  )\| ?ban deleted \(expired\) reason='(.*)' (cluid|ip|name)='(.+)' bantime=(\d+) by client '(.+)'\(id:(\d+)\))"), {LineData::NONE, LineData::MESSAGE1, LineData::NONE /*ban target type*/, LineData::NONE /*ban target*/, LineData::NONE /*ban time*/, LineData::NAME1, LineData::ID1}}},
+		{RecordType::COMPLAINT_ADDED, {std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServer \|(?:  \d+|\d+  )\| ?complaint added for client '(.+)'\(id:(\d+)\) reason '(.*)' by client '(.+)'\(id:(\d+)\))"), {LineData::NONE, LineData::NAME1, LineData::ID1, LineData::MESSAGE1, LineData::NAME2, LineData::ID2}}},
 	};
 
 public:

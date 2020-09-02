@@ -14,7 +14,7 @@ enum class RecordType : char {
 	BAN_ADDED,						// 2015-01-08 08:27:28.204767|INFO    |VirtualServer |  1| ban added reason='heheszki' cluid='CNwS8Ol/rpoi1lTZB004mbaBFP0=' bantime=3600 by client 'Marchew'(id:22)
 	BAN_DELETED,					// 2015-01-14 17:02:02.313508|INFO    |VirtualServer |  1| ban deleted reason='' cluid='gsJgu8TZmqe4tq/YKaFdvJNl1Uk=' bantime=0 by client 'PameleonNS'(id:6)
 	BAN_EXPIRED,					// 2015-01-13 17:30:06.884395|INFO    |BanManager    |  1| ban deleted (expired) reason='tst' cluid='CNwS8Ol/rpoi1lTZB004mbaBFP0=' bantime=60 by client 'server'(id:0)
-	COMPLAINT_ADDED,				//2015-01-14 16:50:00.791808|INFO    |VirtualServer |  1| complaint added for client 'PameleonNS'(id:6) reason 'jebie g&#243;wnem' by client 'Rysiu'(id:5)
+	COMPLAINT_ADDED,				// 2015-01-14 16:50:00.791808|INFO    |VirtualServer |  1| complaint added for client 'PameleonNS'(id:6) reason 'jebie g&#243;wnem' by client 'Rysiu'(id:5)
 	COMPLAINT_DELETED,				//2015-03-16 10:52:22.129620|INFO    |VirtualServer |  1| complaint got deleted by client 'Marchew'(id:22) for client 'PiotrU'(id:2) complained by 'Marchew'(id:22)
 	COMPLAINT_ALL_DELETED,			//2015-03-16 18:11:44.265863|INFO    |VirtualServer |  1| all complaints got deleted by client 'PiotrU'(id:2) for client 'Marchew'(id:22)
 	CHANNEL_CREATED,				//2014-12-19 09:25:22.665349|INFO    |VirtualServerBase|  1| channel 'a'(id:82) created by 'Rysiu'(id:5)
