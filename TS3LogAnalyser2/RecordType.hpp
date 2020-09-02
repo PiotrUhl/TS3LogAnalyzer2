@@ -12,7 +12,7 @@ enum class RecordType : char {
 	CLIENT_SERVERGRUOP_MODIFIED,	// 2014-10-19 11:42:30.661540|INFO    |VirtualServer |  1| client (id:4) was added to servergroup 'Normal'(id:7) by client 'PiotrU'(id:2)
 	CLIENT_CHANNELGROUP_MODIFIED,	// 2014-10-19 11:42:18.902961|INFO    |VirtualServer |  1| client 'PiotrU'(id:2) was added to channelgroup 'Channel Admin'(id:5) by client 'PiotrU'(id:2) in channel 'Kana&#322; podstawowy'(id:1)
 	BAN_ADDED,						// 2015-01-08 08:27:28.204767|INFO    |VirtualServer |  1| ban added reason='heheszki' cluid='CNwS8Ol/rpoi1lTZB004mbaBFP0=' bantime=3600 by client 'Marchew'(id:22)
-	BAN_DELETED,					//2015-01-14 17:02:02.313508|INFO    |VirtualServer |  1| ban deleted reason='' cluid='gsJgu8TZmqe4tq/YKaFdvJNl1Uk=' bantime=0 by client 'PameleonNS'(id:6)
+	BAN_DELETED,					// 2015-01-14 17:02:02.313508|INFO    |VirtualServer |  1| ban deleted reason='' cluid='gsJgu8TZmqe4tq/YKaFdvJNl1Uk=' bantime=0 by client 'PameleonNS'(id:6)
 	BAN_EXPIRED,					//2015-01-13 17:30:06.884395|INFO    |BanManager    |  1| ban deleted (expired) reason='tst' cluid='CNwS8Ol/rpoi1lTZB004mbaBFP0=' bantime=60 by client 'server'(id:0)
 	COMPLAINT_ADDED,				//2015-01-14 16:50:00.791808|INFO    |VirtualServer |  1| complaint added for client 'PameleonNS'(id:6) reason 'jebie g&#243;wnem' by client 'Rysiu'(id:5)
 	COMPLAINT_DELETED,				//2015-03-16 10:52:22.129620|INFO    |VirtualServer |  1| complaint got deleted by client 'Marchew'(id:22) for client 'PiotrU'(id:2) complained by 'Marchew'(id:22)

@@ -33,6 +33,9 @@ void UserDataUpdater::update(const LineInfo& lineInfo) {
 	case RecordType::BAN_ADDED:
 		getUser(lineInfo.getUint(LineData::ID1)).bansGiven++;
 		break;
+	case RecordType::BAN_DELETED:
+		getUser(lineInfo.getUint(LineData::ID1)).bansDeleted++;
+		break;
 	};
 }
 

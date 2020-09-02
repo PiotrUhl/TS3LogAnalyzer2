@@ -39,6 +39,9 @@ void ServerDataUpdater::update(const LineInfo& lineInfo) {
 	case RecordType::BAN_ADDED:
 		serverData.bans++;
 		break;
+	case RecordType::BAN_DELETED:
+		serverData.bansDeleted++;
+		break;
 	}
 }
 
