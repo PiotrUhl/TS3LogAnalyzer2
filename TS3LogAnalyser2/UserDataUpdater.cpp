@@ -40,6 +40,8 @@ void UserDataUpdater::update(const LineInfo& lineInfo) {
 		getUser(lineInfo.getUint(LineData::ID1)).complaintTaken++;
 		getUser(lineInfo.getUint(LineData::ID2)).complaintGiven++;
 		break;
+	case RecordType::COMPLAINT_DELETED:
+		break;
 	};
 }
 
