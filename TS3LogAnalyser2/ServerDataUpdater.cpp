@@ -32,11 +32,14 @@ void ServerDataUpdater::update(const LineInfo& lineInfo) {
 	case RecordType::CLIENT_DISCONNECTED:
 		updateClientDisconnected(lineInfo);
 		break;
-	case RecordType::CLIENT_SERVERGRUOP_MODIFIED:
+	case RecordType::CLIENT_SERVERGRUOP_MODIFIED: //todo: rozró¿nienie
 	case RecordType::CLIENT_CHANNELGROUP_MODIFIED:
 		serverData.clientGroupModified++;
 		break;
-	};
+	case RecordType::BAN_ADDED:
+		serverData.bans++;
+		break;
+	}
 }
 
 //dopisuje zawartoœæ rekordu do statystyk serwera

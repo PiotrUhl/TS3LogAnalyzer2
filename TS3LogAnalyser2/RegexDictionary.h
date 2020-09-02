@@ -19,7 +19,7 @@ class RegexDictionary {
 		{RecordType::CLIENT_DISCONNECTED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.(\d){6}\|INFO    \|VirtualServerBase\|((  \d+)|(\d+  ))\| ?client disconnected '.+'\(id:\d+\) reason 'reasonmsg=.+')")},
 		{RecordType::CLIENT_SERVERGRUOP_MODIFIED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.(\d){6}\|INFO    \|VirtualServer \|((  \d+)|(\d+  ))\| ?client \(id:\d+\) was added to servergroup '.+'\(id:\d+\) by client '.+'\(id:\d+\))")},
 		{RecordType::CLIENT_CHANNELGROUP_MODIFIED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.(\d){6}\|INFO    \|VirtualServer \|((  \d+)|(\d+  ))\| ?client '.+'\(id:\d+\) was added to channelgroup '.+'\(id:\d+\) by client '.+'\(id:\d+\) in channel '.+'\(id:\d+\))")},
-		//{RecordType::BAN_ADDED, std::regex("")},
+		{RecordType::BAN_ADDED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServer \|(?:  \d+|\d+  )\| ?ban added reason='(.*)' (cluid|ip|name)='(.+)' bantime=(\d+) by client '(.+)'\(id:(\d+)\))")},
 		//{RecordType::BAN_DELETED, std::regex("")},
 		//{RecordType::BAN_EXPIRED, std::regex("")},
 		//{RecordType::COMPLAINT_ADDED, std::regex("")},
@@ -48,7 +48,8 @@ class RegexDictionary {
 		{RecordType::CLIENT_CONNECTED, {std::regex(R"(client connected '(.+)'\(id:(\d+)\)( using a myTeamSpeak ID)? from (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(\d{1,5}))"), {LineData::NONE, LineData::NAME1, LineData::ID1, LineData::NONE/*chyba jest tu bool czy myTeamSpeakID*/, LineData::IP1, LineData::PORT1}}},
 		{RecordType::CLIENT_DISCONNECTED, {std::regex(R"(client disconnected '(.+)'\(id:(\d+)\) reason 'reasonmsg=(.+)')"), {LineData::NONE, LineData::NAME1, LineData::ID1, LineData::MESSAGE1}}},
 		{RecordType::CLIENT_SERVERGRUOP_MODIFIED, {std::regex(R"(client \(id:(\d+)\) was added to servergroup '(.+)'\(id:(\d+)\) by client '(.+)'\(id:(\d+)\))"), {LineData::NONE, LineData::ID1, LineData::NAME2, LineData::ID2, LineData::NAME3, LineData::ID3}}},
-		{RecordType::CLIENT_CHANNELGROUP_MODIFIED, {std::regex(R"(client '(.+)'\(id:(\d+)\) was added to channelgroup '(.+)'\(id:(\d+)\) by client '(.+)'\(id:(\d+)\) in channel '(.+)'\(id:(\d+)\))"), {LineData::NONE, LineData::NAME1, LineData::ID1, LineData::NAME2, LineData::ID2, LineData::NAME3, LineData::ID3, LineData::NAME4, LineData::ID4}}}
+		{RecordType::CLIENT_CHANNELGROUP_MODIFIED, {std::regex(R"(client '(.+)'\(id:(\d+)\) was added to channelgroup '(.+)'\(id:(\d+)\) by client '(.+)'\(id:(\d+)\) in channel '(.+)'\(id:(\d+)\))"), {LineData::NONE, LineData::NAME1, LineData::ID1, LineData::NAME2, LineData::ID2, LineData::NAME3, LineData::ID3, LineData::NAME4, LineData::ID4}}},
+		{RecordType::BAN_ADDED, {std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServer \|(?:  \d+|\d+  )\| ?ban added reason='(.*)' (cluid|ip|name)='(.+)' bantime=(\d+) by client '(.+)'\(id:(\d+)\))"), {LineData::NONE, LineData::MESSAGE1, LineData::NONE /*ban target type*/, LineData::NONE /*ban target*/, LineData::NONE /*ban time*/, LineData::NAME1, LineData::ID1}}}
 	};
 
 public:

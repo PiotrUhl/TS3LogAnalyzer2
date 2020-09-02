@@ -25,10 +25,13 @@ void UserDataUpdater::update(const LineInfo& lineInfo) {
 	case RecordType::CLIENT_DISCONNECTED:
 		updateClientDisconnected(lineInfo);
 		break;
-	case RecordType::CLIENT_SERVERGRUOP_MODIFIED:
+	case RecordType::CLIENT_SERVERGRUOP_MODIFIED: //todo: rozró¿nienie
 	case RecordType::CLIENT_CHANNELGROUP_MODIFIED:
 		getUser(lineInfo.getUint(LineData::ID1)).clientGroupWasModified++;
 		getUser(lineInfo.getUint(LineData::ID3)).clientModifiedGroup++;
+		break;
+	case RecordType::BAN_ADDED:
+		getUser(lineInfo.getUint(LineData::ID1)).bansGiven++;
 		break;
 	};
 }
