@@ -9,6 +9,8 @@ struct UserData {
 	const unsigned int dbid; //dbid u¿ytkownika
 	bool active = false; //czy u¿ytkownik wystêpuje w obrêbie przetworzonych logów
 	unsigned int clientConnected = 0; //iloœæ wejœæ na server
+	unsigned int clientConnectedQuery = 0; //iloœæ wejœæ na server z konsoli
+	unsigned int clientDisconnectedQuery = 0; //iloœæ wyjœæ z servera z konsoli
 	unsigned int clientDisconnectedLeaving = 0; //iloœæ wyjœæ z servera (przez opuszczenie)
 	unsigned int clientDisconnectedTimedOut = 0; //iloœæ wyjsæ z servera (przez Timed Out)
 	unsigned int clientDisconnectedKicked = 0; //iloœæ wyjœæ z servera (przez kick)

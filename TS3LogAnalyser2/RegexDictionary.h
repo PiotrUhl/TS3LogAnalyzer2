@@ -13,7 +13,7 @@ class RegexDictionary {
 		{RecordType::SERVER_MODIFIED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.(\d){6}\|INFO    \|VirtualServerBase\|((  \d+)|(\d+  ))\| ?server was edited by '.+'\(id:\d+\))")},
 		{RecordType::SERVER_STOPPED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.(\d){6}\|INFO    \|VirtualServerBase\|((  \d+)|(\d+  ))\| ?stopped)")},
 		{RecordType::PERMISSION_CHANGED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.(\d){6}\|INFO    \|VirtualServer \|((  \d+)|(\d+  ))\| ?permission '.+'\(id:\d+\) with values \(value:.+\) was added by '.+'\(id:\d+\).+)")},
-		//{RecordType::QUERY_CONNECTED, std::regex("")},
+		{RecordType::QUERY_CONNECTED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.(\d){6}\|INFO    \|VirtualServer \|((  \d+)|(\d+  ))\| ?query client connected '.+'\(id:\d+\))")},
 		//{RecordType::QUERY_DISCONNECTED, std::regex("")},
 		{RecordType::CLIENT_CONNECTED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.(\d){6}\|INFO    \|VirtualServerBase\|((  \d+)|(\d+  ))\| ?client connected '.+'\(id:\d+\)( using a myTeamSpeak ID)? from \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5})")},
 		{RecordType::CLIENT_DISCONNECTED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.(\d){6}\|INFO    \|VirtualServerBase\|((  \d+)|(\d+  ))\| ?client disconnected '.+'\(id:\d+\) reason 'reasonmsg=.+')")}
@@ -43,6 +43,7 @@ class RegexDictionary {
 		{RecordType::SERVER_MODIFIED, {std::regex(R"(server was edited by '(.+)'\(id:(\d+)\))"), {LineData::NONE, LineData::NAME1, LineData::ID1}}},
 		{RecordType::SERVER_STOPPED, {std::regex(R"(stopped)"), {LineData::NONE}}}, //todo: zoptymalizowaæ LineInterpreter::makeLineInfo() tak, by mo¿na by³o to usun¹æ
 		{RecordType::PERMISSION_CHANGED, {std::regex(R"(permission '.+'\(id:\d+\) with values \(value:.+\) was added by '(.+)'\(id:(\d+)\).+)"), {LineData::NONE, LineData::NAME1, LineData::ID1}}}, //tu jest znacznie wiêcej informacji do wyci¹gniêcia, ale na razie s¹ one niepotrzebne
+		{RecordType::QUERY_CONNECTED, {std::regex(R"(query client connected '(.+)'\(id:(\d+)\))"), {LineData::NONE, LineData::NAME1, LineData::ID1}}},
 		{RecordType::CLIENT_CONNECTED, {std::regex(R"(client connected '(.+)'\(id:(\d+)\)( using a myTeamSpeak ID)? from (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(\d{1,5}))"), {LineData::NONE, LineData::NAME1, LineData::ID1, LineData::NONE/*chyba jest tu bool czy myTeamSpeakID*/, LineData::IP1, LineData::PORT1}}},
 		{RecordType::CLIENT_DISCONNECTED, {std::regex(R"(client disconnected '(.+)'\(id:(\d+)\) reason 'reasonmsg=(.+)')"), {LineData::NONE, LineData::NAME1, LineData::ID1, LineData::MESSAGE1}}}
 	};

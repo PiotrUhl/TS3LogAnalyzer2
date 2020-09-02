@@ -20,6 +20,9 @@ void ServerDataUpdater::update(const LineInfo& lineInfo) {
 	case RecordType::PERMISSION_CHANGED:
 		serverData.permissionModified++;
 		break;
+	case RecordType::QUERY_CONNECTED:
+		serverData.queryClientConnected++;
+		break;
 	case RecordType::CLIENT_CONNECTED:
 		serverData.clientConnected++;
 		break;

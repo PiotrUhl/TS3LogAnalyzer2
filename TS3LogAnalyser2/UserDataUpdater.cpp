@@ -12,6 +12,9 @@ void UserDataUpdater::update(const LineInfo& lineInfo) {
 	case RecordType::PERMISSION_CHANGED:
 		getUser(lineInfo.getUint(LineData::ID1)).permissionModified++;
 		break;
+	case RecordType::QUERY_CONNECTED:
+		getUser(lineInfo.getUint(LineData::ID1)).clientConnectedQuery++;
+		break;
 	case RecordType::CLIENT_CONNECTED:
 		updateClientConnected(lineInfo);
 		break;
