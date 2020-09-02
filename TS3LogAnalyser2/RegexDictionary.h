@@ -10,7 +10,7 @@ class RegexDictionary {
 	const std::map<RecordType, std::regex> identMap = {
 		//{RecordType::UNIDENTIFIED, std::regex("")},
 		{RecordType::SERVER_STARTED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.(\d){6}\|INFO    \|VirtualServer \|((  \d+)|(\d+  ))\| ?listening on \d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5})")},
-		//{RecordType::SERVER_MOFIFIED, std::regex("")},
+		{RecordType::SERVER_MODIFIED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.(\d){6}\|INFO    \|VirtualServerBase\|((  \d+)|(\d+  ))\| ?server was edited by '.+'\(id:\d+\))")},
 		{RecordType::SERVER_STOPPED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.(\d){6}\|INFO    \|VirtualServerBase\|((  \d+)|(\d+  ))\| ?stopped)")},
 		//{RecordType::PERMISSION_CHANGED, std::regex("")},
 		//{RecordType::QUERY_CONNECTED, std::regex("")},
@@ -40,6 +40,7 @@ class RegexDictionary {
 	//do ka¿dego typu rekordu przypisany jest regex wyci¹gaj¹cy dane z niego oraz pod której ka¿dym indexem jest rodzaj danych zwracanych przez regexa pod tym indeksem
 	const std::map<RecordType, std::pair<std::regex, std::vector<LineData>>> dataMap = {
 		{RecordType::SERVER_STARTED, {std::regex(R"(listening on (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(\d{1,5}))"), {LineData::NONE, LineData::IP1, LineData::PORT1}}},
+		{RecordType::SERVER_MODIFIED, {std::regex(R"(server was edited by '(.+)'\(id:(\d+)\))"), {LineData::NONE, LineData::NAME1, LineData::ID1}}},
 		{RecordType::SERVER_STOPPED, {std::regex(R"(stopped)"), {LineData::NONE}}}, //todo: zoptymalizowaæ LineInterpreter::makeLineInfo() tak, by mo¿na by³o to usun¹æ
 		{RecordType::CLIENT_CONNECTED, {std::regex(R"(client connected '(.+)'\(id:(\d+)\)( using a myTeamSpeak ID)? from (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(\d{1,5}))"), {LineData::NONE, LineData::NAME1, LineData::ID1, LineData::NONE/*chyba jest tu bool czy myTeamSpeakID*/, LineData::IP1, LineData::PORT1}}},
 		{RecordType::CLIENT_DISCONNECTED, {std::regex(R"(client disconnected '(.+)'\(id:(\d+)\) reason 'reasonmsg=(.+)')"), {LineData::NONE, LineData::NAME1, LineData::ID1, LineData::MESSAGE1}}}

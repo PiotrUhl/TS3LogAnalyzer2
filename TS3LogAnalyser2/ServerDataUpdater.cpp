@@ -10,6 +10,9 @@ void ServerDataUpdater::update(const LineInfo& lineInfo) {
 		//todo: liczenie uptimu
 		serverData.started++;
 		break;
+	case RecordType::SERVER_MODIFIED:
+		serverData.edited++;
+		break;
 	case RecordType::SERVER_STOPPED:
 		//todo: liczenie uptimu
 		serverData.stopped++;

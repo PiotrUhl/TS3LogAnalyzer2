@@ -6,6 +6,9 @@
 //dopisuje zawartoœæ rekordu do statystyk odpowiednich u¿ytkowników
 void UserDataUpdater::update(const LineInfo& lineInfo) {
 	switch (lineInfo.getType()) {
+	case RecordType::SERVER_MODIFIED:
+		userData[lineInfo.getUint(LineData::ID1)].serverModified++;
+		break;
 	case RecordType::CLIENT_CONNECTED:
 		updateClientConnected(lineInfo);
 		break;
@@ -14,6 +17,7 @@ void UserDataUpdater::update(const LineInfo& lineInfo) {
 		break;
 	};
 }
+
 
 void UserDataUpdater::updateClientConnected(const LineInfo& lineInfo) {
 	unsigned int id = lineInfo.getUint(LineData::ID1);
@@ -28,10 +32,10 @@ void UserDataUpdater::updateClientConnected(const LineInfo& lineInfo) {
 }
 
 void UserDataUpdater::updateClientDisconnected(const LineInfo& lineInfo) {
-	unsigned int id = lineInfo.getInt(LineData::ID1);
-	while (userData.size() <= id) { //brak u¿ytkownika w bazie
+	unsigned int id = lineInfo.getUint(LineData::ID1);
+	/*while (userData.size() <= id) { //brak u¿ytkownika w bazie
 		userData.push_back(UserData(static_cast<unsigned int>(userData.size()))); //cast only to suppress warning
-	}
+	}*/
 
 	std::string reasonmsg = lineInfo.getString(LineData::MESSAGE1);
 	userData[id].clientDisconnectedLeaving++; //todo: rozró¿nianie typu disconnectu po reasonmsg
