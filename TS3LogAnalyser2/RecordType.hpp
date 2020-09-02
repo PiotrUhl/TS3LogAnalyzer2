@@ -1,14 +1,14 @@
 #pragma once
 enum class RecordType : char {
 	UNIDENTIFIED = 0,
-	SERVER_STARTED,					//2014-10-18 09:44:09.925743|INFO    |VirtualServer |  1| listening on 0.0.0.0:9987
+	SERVER_STARTED,					// 2014-10-18 09:44:09.925743|INFO    |VirtualServer |  1| listening on 0.0.0.0:9987
 	SERVER_MODIFIED,				//2014-12-10 11:05:01.267303|INFO    |VirtualServerBase|  1| server was edited by 'PiotrU'(id:2)
 	SERVER_STOPPED,					//2014-10-18 10:05:46.614395|INFO    |VirtualServerBase|  1| stopped
 	PERMISSION_CHANGED,				//2014-10-19 11:41:32.945257|INFO    |VirtualServer |  1| permission 'i_ft_needed_file_upload_power'(id:234) with values (value:75) was added by 'PiotrU'(id:2) to channelgroup 'Channel Admin'(id:5)
 	QUERY_CONNECTED,				//2015-01-03 17:16:54.621846|INFO    |VirtualServer |  1| query client connected 'Unknown from 174.36.245.59:50334'(id:47)
 	QUERY_DISCONNECTED,				//2015-01-03 17:16:54.966173|INFO    |VirtualServerBase|  1| query client disconnected 'Unknown from 174.36.245.59:50334'(id:47) reason
-	CLIENT_CONNECTED,				//2014-12-17 19:53:16.868424|INFO    |VirtualServerBase|  1| client connected 'Kudlaty97'(id:8) from 178.37.156.206:1092
-	CLIENT_DISCONNECTED,			//2014-12-17 19:16:48.564515|INFO    |VirtualServerBase|  1| client disconnected 'Niko'(id:4) reason 'reasonmsg=leaving'
+	CLIENT_CONNECTED,				// 2014-12-17 19:53:16.868424|INFO    |VirtualServerBase|  1| client connected 'Kudlaty97'(id:8) from 178.37.156.206:1092
+	CLIENT_DISCONNECTED,			// 2014-12-17 19:16:48.564515|INFO    |VirtualServerBase|  1| client disconnected 'Niko'(id:4) reason 'reasonmsg=leaving'
 	CLIENT_SERVERGRUOP_MODIFIED,	//2014-10-19 11:42:30.661540|INFO    |VirtualServer |  1| client (id:4) was added to servergroup 'Normal'(id:7) by client 'PiotrU'(id:2)
 	CLIENT_CHANNELGROUP_MODIFIED,	//2014-10-19 11:42:18.902961|INFO    |VirtualServer |  1| client 'PiotrU'(id:2) was added to channelgroup 'Channel Admin'(id:5) by client 'PiotrU'(id:2) in channel 'Kana&#322; podstawowy'(id:1)
 	BAN_ADDED,						//2015-01-08 08:27:28.204767|INFO    |VirtualServer |  1| ban added reason='heheszki' cluid='CNwS8Ol/rpoi1lTZB004mbaBFP0=' bantime=3600 by client 'Marchew'(id:22)

@@ -5,6 +5,9 @@
 //dopisuje zawartoœæ rekordu do statystyk serwera
 void ServerDataUpdater::update(const LineInfo& lineInfo) {
 	switch (lineInfo.getType()) {
+	case RecordType::SERVER_STARTED:
+		serverData.started++;
+		break;
 	case RecordType::CLIENT_CONNECTED:
 		serverData.clientConnected++;
 		break;
