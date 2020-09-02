@@ -35,7 +35,7 @@ struct UserData {
 	unsigned int fileDirectory = 0; //iloœæ operacji na folderach plików
 	unsigned int serverModified = 0; //iloœæ modyfikajci servera
 	unsigned int permissionModified = 0; //iloœæ modyfikacji uprawnieñ
-	unsigned int clientGroupModified = 0; //iloœæ wykonanych modyfikacji grupy
+	unsigned int clientModifiedGroup = 0; //iloœæ wykonanych modyfikacji grupy
 	unsigned int clientGroupWasModified = 0; //iloœæ modyfikacji grupy u¿ytkownika
 	std::string lastNickname; //ostatnia znana nazwa u¿ytkownika
 	std::set<std::string> nicknames; //u¿ywane nazwy u¿ytkownika

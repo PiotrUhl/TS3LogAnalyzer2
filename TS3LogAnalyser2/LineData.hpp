@@ -5,5 +5,9 @@ enum class LineData : char {
 	NAME1,
 	IP1,
 	PORT1,
-	MESSAGE1
+	MESSAGE1,
+	ID2,
+	NAME2,
+	ID3,
+	NAME3
 };

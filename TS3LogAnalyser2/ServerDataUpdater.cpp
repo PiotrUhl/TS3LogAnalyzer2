@@ -32,6 +32,9 @@ void ServerDataUpdater::update(const LineInfo& lineInfo) {
 	case RecordType::CLIENT_DISCONNECTED:
 		updateClientDisconnected(lineInfo);
 		break;
+	case RecordType::CLIENT_SERVERGRUOP_MODIFIED:
+		serverData.clientGroupModified++;
+		break;
 	};
 }
 

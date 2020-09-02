@@ -25,6 +25,10 @@ void UserDataUpdater::update(const LineInfo& lineInfo) {
 	case RecordType::CLIENT_DISCONNECTED:
 		updateClientDisconnected(lineInfo);
 		break;
+	case RecordType::CLIENT_SERVERGRUOP_MODIFIED:
+		getUser(lineInfo.getUint(LineData::ID1)).clientGroupWasModified++;
+		getUser(lineInfo.getUint(LineData::ID3)).clientModifiedGroup++;
+		break;
 	};
 }
 

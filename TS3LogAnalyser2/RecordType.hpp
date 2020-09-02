@@ -9,7 +9,7 @@ enum class RecordType : char {
 	QUERY_DISCONNECTED,				// 2015-01-03 17:16:54.966173|INFO    |VirtualServerBase|  1| query client disconnected 'Unknown from 174.36.245.59:50334'(id:47) reason
 	CLIENT_CONNECTED,				// 2014-12-17 19:53:16.868424|INFO    |VirtualServerBase|  1| client connected 'Kudlaty97'(id:8) from 178.37.156.206:1092
 	CLIENT_DISCONNECTED,			// 2014-12-17 19:16:48.564515|INFO    |VirtualServerBase|  1| client disconnected 'Niko'(id:4) reason 'reasonmsg=leaving'
-	CLIENT_SERVERGRUOP_MODIFIED,	//2014-10-19 11:42:30.661540|INFO    |VirtualServer |  1| client (id:4) was added to servergroup 'Normal'(id:7) by client 'PiotrU'(id:2)
+	CLIENT_SERVERGRUOP_MODIFIED,	// 2014-10-19 11:42:30.661540|INFO    |VirtualServer |  1| client (id:4) was added to servergroup 'Normal'(id:7) by client 'PiotrU'(id:2)
 	CLIENT_CHANNELGROUP_MODIFIED,	//2014-10-19 11:42:18.902961|INFO    |VirtualServer |  1| client 'PiotrU'(id:2) was added to channelgroup 'Channel Admin'(id:5) by client 'PiotrU'(id:2) in channel 'Kana&#322; podstawowy'(id:1)
 	BAN_ADDED,						//2015-01-08 08:27:28.204767|INFO    |VirtualServer |  1| ban added reason='heheszki' cluid='CNwS8Ol/rpoi1lTZB004mbaBFP0=' bantime=3600 by client 'Marchew'(id:22)
 	BAN_DELETED,					//2015-01-14 17:02:02.313508|INFO    |VirtualServer |  1| ban deleted reason='' cluid='gsJgu8TZmqe4tq/YKaFdvJNl1Uk=' bantime=0 by client 'PameleonNS'(id:6)
