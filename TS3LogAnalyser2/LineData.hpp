@@ -9,5 +9,7 @@ enum class LineData : char {
 	ID2,
 	NAME2,
 	ID3,
-	NAME3
+	NAME3,
+	ID4,
+	NAME4
 };
