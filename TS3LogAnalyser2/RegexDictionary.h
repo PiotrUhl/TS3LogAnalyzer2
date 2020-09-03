@@ -30,7 +30,7 @@ class RegexDictionary {
 		{RecordType::CHANNEL_DELETED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServerBase\|(?:  \d+|\d+  )\| ?channel '(.+)'\(id:(\d+)\) deleted by '(.+)'\(id:(\d+)\))")},
 		{RecordType::CHANNEL_SUB_CREATED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServerBase\|(?:  \d+|\d+  )\| ?channel '(.+)'\(id:(\d+)\) created as sub channel of '(.+)'\(id:(\d+)\) by '(.+)'\(id:(\d+)\))")},
 		{RecordType::FILE_UPLOADED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServer \|(?:  \d+|\d+  )\| ?file upload to \(id:(\d+)\), '(.+)' by client '(.+)'\(id:(\d+)\))")},
-		//{RecordType::FILE_DOWNLOADED, std::regex("")},
+		{RecordType::FILE_DOWNLOADED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServer \|(?:  \d+|\d+  )\| ?file download from \(id:(\d+)\), '(.+)' by client '(.+)'\(id:(\d+)\))")},
 		//{RecordType::FILE_DELETED, std::regex("")},
 		//{RecordType::FILE_MOVED, std::regex("")},
 		//{RecordType::FILE_DIRECTORY, std::regex("")}
@@ -60,6 +60,7 @@ class RegexDictionary {
 		{RecordType::CHANNEL_DELETED, {std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServerBase\|(?:  \d+|\d+  )\| ?channel '(.+)'\(id:(\d+)\) deleted by '(.+)'\(id:(\d+)\))"), {LineData::NONE, LineData::NAME1, LineData::ID1, LineData::NAME2, LineData::ID2}}},
 		{RecordType::CHANNEL_SUB_CREATED, {std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServerBase\|(?:  \d+|\d+  )\| ?channel '(.+)'\(id:(\d+)\) created as sub channel of '(.+)'\(id:(\d+)\) by '(.+)'\(id:(\d+)\))"), {LineData::NONE, LineData::NAME1, LineData::ID1, LineData::NAME2, LineData::ID2, LineData::NAME3, LineData::ID3}}},
 		{RecordType::FILE_UPLOADED, {std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServer \|(?:  \d+|\d+  )\| ?file upload to \(id:(\d+)\), '(.+)' by client '(.+)'\(id:(\d+)\))"), {LineData::NONE, LineData::ID1, LineData::NAME2, LineData::NAME3, LineData::ID3}}},
+		{RecordType::FILE_DOWNLOADED, {std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServer \|(?:  \d+|\d+  )\| ?file download from \(id:(\d+)\), '(.+)' by client '(.+)'\(id:(\d+)\))"), {LineData::NONE, LineData::ID1, LineData::NAME2, LineData::NAME3, LineData::ID3}}},
 	};
 
 public:

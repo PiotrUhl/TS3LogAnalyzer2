@@ -63,6 +63,9 @@ void ServerDataUpdater::update(const LineInfo& lineInfo) {
 	case RecordType::FILE_UPLOADED:
 		serverData.fileUploaded++;
 		break;
+	case RecordType::FILE_DOWNLOADED:
+		serverData.fileDownloaded++;
+		break;
 	}
 }
 
