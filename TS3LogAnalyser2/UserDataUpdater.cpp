@@ -66,6 +66,9 @@ void UserDataUpdater::update(const LineInfo& lineInfo) {
 	case RecordType::FILE_MOVED:
 		getUser(lineInfo.getUint(LineData::ID3)).fileMoved++;
 		break;
+	case RecordType::FILE_DIRECTORY:
+		getUser(lineInfo.getUint(LineData::ID2)).fileDirectory++;
+		break;
 	};
 }
 

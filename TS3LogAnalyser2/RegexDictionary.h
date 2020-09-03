@@ -33,7 +33,7 @@ class RegexDictionary {
 		{RecordType::FILE_DOWNLOADED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServer \|(?:  \d+|\d+  )\| ?file download from \(id:(\d+)\), '(.+)' by client '(.+)'\(id:(\d+)\))")},
 		{RecordType::FILE_DELETED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServer \|(?:  \d+|\d+  )\| ?file deleted from \(id:(\d+)\), '(.+)' by client '(.+)'\(id:(\d+)\))")},
 		{RecordType::FILE_MOVED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServer \|(?:  \d+|\d+  )\| ?file renamed/moved from \(id:(\d+)\), '(.+)' to \(id:(\d+)\), '(.+)' by client '(.+)'\(id:(\d+)\))")},
-		//{RecordType::FILE_DIRECTORY, std::regex("")}
+		{RecordType::FILE_DIRECTORY, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServer \|(?:  \d+|\d+  )\| ?file directory '(.+)' created by client '(.+)'\(id:(\d+)\) in \(id:(\d+)\))")}
 	};
 
 	//przyk³ad id1 dla channelCreated: regex reg(R"(\| channel '.+'\(id:(\d+)\) created by '.+'\(id:\d+\))");
@@ -63,6 +63,7 @@ class RegexDictionary {
 		{RecordType::FILE_DOWNLOADED, {std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServer \|(?:  \d+|\d+  )\| ?file download from \(id:(\d+)\), '(.+)' by client '(.+)'\(id:(\d+)\))"), {LineData::NONE, LineData::ID1, LineData::NAME2, LineData::NAME3, LineData::ID3}}},
 		{RecordType::FILE_DELETED, {std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServer \|(?:  \d+|\d+  )\| ?file deleted from \(id:(\d+)\), '(.+)' by client '(.+)'\(id:(\d+)\))"), {LineData::NONE, LineData::ID1, LineData::NAME2, LineData::NAME3, LineData::ID3}}},
 		{RecordType::FILE_MOVED, {std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServer \|(?:  \d+|\d+  )\| ?file renamed/moved from \(id:(\d+)\), '(.+)' to \(id:(\d+)\), '(.+)' by client '(.+)'\(id:(\d+)\))"), {LineData::NONE, LineData::ID1, LineData::NAME1, LineData::ID2, LineData::NAME2, LineData::NAME3, LineData::ID3}}},
+		{RecordType::FILE_DIRECTORY, {std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServer \|(?:  \d+|\d+  )\| ?file directory '(.+)' created by client '(.+)'\(id:(\d+)\) in \(id:(\d+)\))"), {LineData::NONE, LineData::NAME1, LineData::NAME2, LineData::ID2, LineData::ID3}}}
 	};
 
 public:

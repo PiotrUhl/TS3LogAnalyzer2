@@ -72,6 +72,9 @@ void ServerDataUpdater::update(const LineInfo& lineInfo) {
 	case RecordType::FILE_MOVED:
 		serverData.fileMoved++;
 		break;
+	case RecordType::FILE_DIRECTORY:
+		serverData.fileDirectory++;
+		break;
 	}
 }
 
