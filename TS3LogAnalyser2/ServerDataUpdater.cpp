@@ -51,6 +51,9 @@ void ServerDataUpdater::update(const LineInfo& lineInfo) {
 	case RecordType::CHANNEL_CREATED:
 		serverData.channelCreated++;
 		break;
+	case RecordType::CHANNEL_SUB_CREATED:
+		serverData.channelSubCreated++;
+		break;
 	}
 }
 

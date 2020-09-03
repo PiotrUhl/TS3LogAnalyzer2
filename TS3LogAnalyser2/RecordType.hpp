@@ -20,7 +20,7 @@ enum class RecordType : char {
 	CHANNEL_CREATED,				// 2014-12-19 09:25:22.665349|INFO    |VirtualServerBase|  1| channel 'a'(id:82) created by 'Rysiu'(id:5)
 	CHANNEL_EDITED,					//2014-12-23 15:07:41.985745|INFO    |VirtualServerBase|  1| channel 'mi sie ta nazwa podoba'(id:90) edited by 'galSOON'(id:10)
 	CHANNEL_DELETED,				//2014-12-19 09:25:30.852913|INFO    |VirtualServerBase|  1| channel 'a'(id:82) deleted by 'server'(id:0)
-	CHANNEL_SUB_CREATED,			//2015-01-14 16:41:05.315766|INFO    |VirtualServerBase|  1| channel 'Tymczasowy kana&#322; wymiany danych'(id:100) created as sub channel of 'Kana&#322; podstawowy'(id:1) by 'PiotrU'(id:2)
+	CHANNEL_SUB_CREATED,			// 2015-01-14 16:41:05.315766|INFO    |VirtualServerBase|  1| channel 'Tymczasowy kana&#322; wymiany danych'(id:100) created as sub channel of 'Kana&#322; podstawowy'(id:1) by 'PiotrU'(id:2)
 	FILE_UPLOADED,					//2014-12-18 21:18:07.750580|INFO    |VirtualServer |  1| file upload to (id:1), '/KolekcjaGierek.png' by client 'Marchew'(id:22)
 	FILE_DOWNLOADED,				//2014-12-18 09:22:17.077266|INFO    |VirtualServer |  1| file download from (id:1), '/Archiwum/Zdjecia Matela/2014-11-23_17.21.56.jpg' by client 'Marchew'(id:22)
 	FILE_DELETED,					//2014-12-18 21:23:09.538498|INFO    |VirtualServer |  1| file deleted from (id:1), 'files/virtualserver_1/channel_1//KolekcjaGierek.png' by client 'PiotrU'(id:2)

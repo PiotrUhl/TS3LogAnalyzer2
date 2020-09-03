@@ -45,6 +45,9 @@ void UserDataUpdater::update(const LineInfo& lineInfo) {
 	case RecordType::CHANNEL_CREATED:
 		getUser(lineInfo.getUint(LineData::ID2)).channelCreated++;
 		break;
+	case RecordType::CHANNEL_SUB_CREATED:
+		getUser(lineInfo.getUint(LineData::ID3)).channelSubCreated++;
+		break;
 	};
 }
 
