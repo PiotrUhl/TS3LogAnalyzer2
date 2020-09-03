@@ -63,6 +63,9 @@ void UserDataUpdater::update(const LineInfo& lineInfo) {
 	case RecordType::FILE_DELETED:
 		getUser(lineInfo.getUint(LineData::ID3)).fileDeleted++;
 		break;
+	case RecordType::FILE_MOVED:
+		getUser(lineInfo.getUint(LineData::ID3)).fileMoved++;
+		break;
 	};
 }
 

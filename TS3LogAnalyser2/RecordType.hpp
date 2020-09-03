@@ -24,6 +24,6 @@ enum class RecordType : char {
 	FILE_UPLOADED,					// 2014-12-18 21:18:07.750580|INFO    |VirtualServer |  1| file upload to (id:1), '/KolekcjaGierek.png' by client 'Marchew'(id:22)
 	FILE_DOWNLOADED,				// 2014-12-18 09:22:17.077266|INFO    |VirtualServer |  1| file download from (id:1), '/Archiwum/Zdjecia Matela/2014-11-23_17.21.56.jpg' by client 'Marchew'(id:22)
 	FILE_DELETED,					// 2014-12-18 21:23:09.538498|INFO    |VirtualServer |  1| file deleted from (id:1), 'files/virtualserver_1/channel_1//KolekcjaGierek.png' by client 'PiotrU'(id:2)
-	FILE_MOVED,						//2014-12-18 09:21:45.993603|INFO    |VirtualServer |  1| file renamed/moved from (id:1), 'files/virtualserver_1/channel_1//CISCO CCNA/CCNA Discovery Sieci dla domu i malych przedsiebiorstw (Wersja 4.0) - DHomesb Chapter 4.txt' to (id:1), 'files/virtualserver_1/channel_1//CISCO CCNA/CCNA Chapter 4.txt' by client 'Marchew'(id:22) 
+	FILE_MOVED,						// 2014-12-18 09:21:45.993603|INFO    |VirtualServer |  1| file renamed/moved from (id:1), 'files/virtualserver_1/channel_1//CISCO CCNA/CCNA Discovery Sieci dla domu i malych przedsiebiorstw (Wersja 4.0) - DHomesb Chapter 4.txt' to (id:1), 'files/virtualserver_1/channel_1//CISCO CCNA/CCNA Chapter 4.txt' by client 'Marchew'(id:22) 
 	FILE_DIRECTORY					//2015-01-08 17:34:58.601975|INFO    |VirtualServer |  1| file directory 'files/virtualserver_1/channel_1//Obudowa Marchewy' created by client 'Marchew'(id:22) in (id:1)
 };
