@@ -25,7 +25,7 @@ class RegexDictionary {
 		{RecordType::COMPLAINT_ADDED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServer \|(?:  \d+|\d+  )\| ?complaint added for client '(.+)'\(id:(\d+)\) reason '(.*)' by client '(.+)'\(id:(\d+)\))")},
 		{RecordType::COMPLAINT_DELETED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServer \|(?:  \d+|\d+  )\| ?complaint got deleted by client '(.+)'\(id:(\d+)\) for client '(.+)'\(id:(\d+)\) complained by '(.+)'\(id:(\d+)\))")},
 		{RecordType::COMPLAINT_ALL_DELETED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServer \|(?:  \d+|\d+  )\| ?all complaints got deleted by client '(.+)'\(id:(\d+)\) for client '(.+)'\(id:(\d+)\))")},
-		//{RecordType::CHANNEL_CREATED, std::regex("")},
+		{RecordType::CHANNEL_CREATED, std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServerBase\|(?:  \d+|\d+  )\| ?channel '(.+)'\(id:(\d+)\) created by '(.+)'\(id:(\d+)\))")},
 		//{RecordType::CHANNEL_EDITED, std::regex("")},
 		//{RecordType::CHANNEL_DELETED, std::regex("")},
 		//{RecordType::CHANNEL_SUB_CREATED, std::regex("")},
@@ -55,6 +55,7 @@ class RegexDictionary {
 		{RecordType::COMPLAINT_ADDED, {std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServer \|(?:  \d+|\d+  )\| ?complaint added for client '(.+)'\(id:(\d+)\) reason '(.*)' by client '(.+)'\(id:(\d+)\))"), {LineData::NONE, LineData::NAME1, LineData::ID1, LineData::MESSAGE1, LineData::NAME2, LineData::ID2}}},
 		{RecordType::COMPLAINT_DELETED, {std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServer \|(?:  \d+|\d+  )\| ?complaint got deleted by client '(.+)'\(id:(\d+)\) for client '(.+)'\(id:(\d+)\) complained by '(.+)'\(id:(\d+)\))"), {LineData::NONE, LineData::NAME1, LineData::ID1, LineData::NAME2, LineData::ID2, LineData::NAME3, LineData::ID3}}},
 		{RecordType::COMPLAINT_ALL_DELETED, {std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServer \|(?:  \d+|\d+  )\| ?all complaints got deleted by client '(.+)'\(id:(\d+)\) for client '(.+)'\(id:(\d+)\))"), {LineData::NONE, LineData::NAME1, LineData::ID1, LineData::NAME2, LineData::ID2}}},
+		{RecordType::CHANNEL_CREATED, {std::regex(R"(\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d.\d{6}\|INFO    \|VirtualServerBase\|(?:  \d+|\d+  )\| ?channel '(.+)'\(id:(\d+)\) created by '(.+)'\(id:(\d+)\))"), {LineData::NONE, LineData::NAME1, LineData::ID1, LineData::NAME2, LineData::ID2}}},
 	};
 
 public:

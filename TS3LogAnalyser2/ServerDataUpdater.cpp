@@ -48,6 +48,9 @@ void ServerDataUpdater::update(const LineInfo& lineInfo) {
 	case RecordType::COMPLAINT_ADDED:
 		serverData.complaint++;
 		break;
+	case RecordType::CHANNEL_CREATED:
+		serverData.channelCreated++;
+		break;
 	}
 }
 

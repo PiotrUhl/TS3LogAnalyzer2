@@ -42,6 +42,9 @@ void UserDataUpdater::update(const LineInfo& lineInfo) {
 		break;
 	case RecordType::COMPLAINT_DELETED:
 		break;
+	case RecordType::CHANNEL_CREATED:
+		getUser(lineInfo.getUint(LineData::ID2)).channelCreated++;
+		break;
 	};
 }
 
