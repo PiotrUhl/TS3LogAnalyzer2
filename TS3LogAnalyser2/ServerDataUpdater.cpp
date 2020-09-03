@@ -54,6 +54,9 @@ void ServerDataUpdater::update(const LineInfo& lineInfo) {
 	case RecordType::CHANNEL_EDITED:
 		serverData.channelModified++;
 		break;
+	case RecordType::CHANNEL_DELETED: //todo: rozró¿nienie miêdzy deleted a deleteg auto (id usera 0)
+		serverData.channelDeleted++;
+		break;
 	case RecordType::CHANNEL_SUB_CREATED:
 		serverData.channelSubCreated++;
 		break;
