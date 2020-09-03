@@ -60,6 +60,9 @@ void ServerDataUpdater::update(const LineInfo& lineInfo) {
 	case RecordType::CHANNEL_SUB_CREATED:
 		serverData.channelSubCreated++;
 		break;
+	case RecordType::FILE_UPLOADED:
+		serverData.fileUploaded++;
+		break;
 	}
 }
 

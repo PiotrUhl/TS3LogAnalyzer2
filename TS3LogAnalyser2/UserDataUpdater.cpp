@@ -54,6 +54,9 @@ void UserDataUpdater::update(const LineInfo& lineInfo) {
 	case RecordType::CHANNEL_SUB_CREATED:
 		getUser(lineInfo.getUint(LineData::ID3)).channelSubCreated++;
 		break;
+	case RecordType::FILE_UPLOADED:
+		getUser(lineInfo.getUint(LineData::ID3)).fileUploaded++;
+		break;
 	};
 }
 
