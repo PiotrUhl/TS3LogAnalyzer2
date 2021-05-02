@@ -34,6 +34,9 @@
     <ClCompile Include="LineInfo.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
+    <ClCompile Include="IPaddress.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileManager.h">
@@ -71,6 +74,9 @@
     </ClInclude>
     <ClInclude Include="LineData.hpp">
       <Filter>Types</Filter>
+    </ClInclude>
+    <ClInclude Include="IPaddress.h">
+      <Filter>Classes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
